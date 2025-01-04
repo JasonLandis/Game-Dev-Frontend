@@ -1,0 +1,7 @@
+Before committing:
+run lint
+run prettier
+
+
+-- TODO --
+Work on authentication
