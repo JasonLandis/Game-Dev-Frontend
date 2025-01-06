@@ -14,12 +14,18 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <nav className="p-4 w-full border-b-2 border-black font-medium space-x-4">
+        <nav className="p-4 w-full border-b-4 border-black font-medium space-x-4">
           <Link href="/" className="hover:text-sky-400">
             Home
           </Link>
           <Link href="/games" className="hover:text-sky-400">
             Games
+          </Link>
+          <Link href="/register" className="hover:text-sky-400 float-right">
+            Register
+          </Link>
+          <Link href="/login" className="hover:text-sky-400 float-right">
+            Login
           </Link>
         </nav>
         <div className="m-5">{children}</div>
