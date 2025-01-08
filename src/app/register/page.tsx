@@ -1,21 +1,19 @@
 'use client';
 import { useState } from 'react';
+import { IAuth, ITokens } from '../../models/authModels';
 
 export default function RegisterPage() {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<IAuth>({
     username: '',
     password: '',
-    email: '',
+    email: ''
   });
 
-  const [message, setMessage] = useState('');
+  const [errorMessages, setErrorMessages] = useState([] as string[]);
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
+  const [confirmPassword, setConfirmPassword] = useState('');
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
 
     try {
@@ -52,9 +50,8 @@ export default function RegisterPage() {
               type="text"
               name="username"
               value={formData.username}
-              onChange={handleChange}
+              onChange={((e) => setFormData({...formData, username: e.target.value}))}
               className="w-full border border-gray-300 p-2 rounded"
-              required
             />
           </div>
           <div className="mb-8">
@@ -63,9 +60,8 @@ export default function RegisterPage() {
               type="password"
               name="password"
               value={formData.password}
-              onChange={handleChange}
+              onChange={((e) => setFormData({...formData, username: e.target.value}))}
               className="w-full border border-gray-300 p-2 rounded"
-              required
             />
           </div>
           <div className="mb-8">
@@ -73,10 +69,9 @@ export default function RegisterPage() {
             <input
               type="password"
               name="confirm password"
-              value={formData.password}
-              onChange={handleChange}
+              value={confirmPassword}
+              onChange={((e) => setConfirmPassword(e.target.value))}
               className="w-full border border-gray-300 p-2 rounded"
-              required
             />
           </div>
           <div className="mb-8">
@@ -85,7 +80,7 @@ export default function RegisterPage() {
               type="text"
               name="email"
               value={formData.email}
-              onChange={handleChange}
+              onChange={((e) => setFormData({...formData, username: e.target.value}))}
               className="w-full border border-gray-300 p-2 rounded"
               required
             />
