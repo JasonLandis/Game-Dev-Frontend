@@ -4,4 +4,4 @@ run prettier
 
 
 -- TODO --
-Hook register and login forms up to backend. Learn how to properly make API calls from Next.
+Learn about tsconfig properties

@@ -1,12 +1,12 @@
-# Frontend built with Next
+# Frontend built with React
 
 ## Commands (using npm run)
 
 ### build
-Builds the project into the '.next' folder
+Builds the project into the 'dist' folder
 
 ### start
-Starts the built project in the '.next' folder
+Starts the built project in the 'dist' folder
 
 ### start:dev
 Builds and starts the active project for testing in development
