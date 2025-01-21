@@ -1,7 +1,0 @@
-Before committing:
-run lint
-run prettier
-
-
--- TODO --
-Learn about tsconfig properties
