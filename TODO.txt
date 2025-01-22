@@ -1,7 +1,2 @@
-Before committing:
-run lint
-run prettier
-
-
--- TODO --
-Learn about tsconfig properties
+Start working on navbar and routing.
+Figure out project structure design.

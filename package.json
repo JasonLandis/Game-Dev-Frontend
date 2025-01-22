@@ -1,14 +1,11 @@
 {
-  "name": "game-dev-frontend",
-  "private": true,
-  "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "build": "tsc -b && vite build",
+    "build": "tsc --build && vite build",
     "start": "vite preview",
     "start:dev": "vite",
-    "lint": "eslint .",
-    "prettier": "prettier --config .prettierrc.json src/**/*.{ts,tsx} --write"
+    "lint": "eslint ./src",
+    "prettier": "prettier --config .prettierrc.json src/**/*{.tsx,.css} --write"
   },
   "dependencies": {
     "react": "^18.3.1",
