@@ -1,2 +1,0 @@
-Start working on navbar and routing.
-Figure out project structure design.
