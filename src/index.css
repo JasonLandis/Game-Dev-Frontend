@@ -3,38 +3,11 @@ body {
   font-family: 'Gill Sans', sans-serif;
 }
 
-nav {
-  display: flex;
-  padding: 20px;
-  border-bottom: 3px solid black;
-}
-
 a {
   text-decoration: none;
   color: black;
-  font-weight: bold;
 }
 
-a:hover {
-  color:rgb(41, 109, 255);
-}
-
-.container {
+.global-page-container {
   padding: 20px;
-}
-
-.game-card {
-  background-color: #f4f4f4;
-  padding: 15px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.game-card h2 {
-  margin: 0 0 10px;
-}
-
-.game-card p {
-  margin: 5px 0;
 }

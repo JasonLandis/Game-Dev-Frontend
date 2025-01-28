@@ -14,7 +14,12 @@
 ---
 
 ### Components
-- Contains React components used throughout the application.
+- Contains React components that are used throughout the application.
+
+---
+
+### Pages
+- Contains React pages used throughout the application.
 - Each component has a .tsx file and a .css file.
 
 ---
@@ -23,7 +28,8 @@
 #### App.tsx and App.css
 - The parent component and style sheet that holds all other components.
 #### index.css
-- The global CSS style sheet for the application.
+- Contains global styles that are used throughout the application.
+- All classes defined in this file must start with 'global'.
 #### main.tsx
 - The entry point of the application.
 - Renders the App component.
