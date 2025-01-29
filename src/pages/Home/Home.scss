@@ -2,28 +2,32 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 20px;
-}
-  
-.home-card {
-    border: 2px solid black;
-    border-radius: 8px;
 
-    &:hover {
-        transform: scale(1.02);
-        cursor: pointer;
-        transition: transform 0.2s;
+    .home-card {
+        border: 2px solid black;
+        border-radius: 8px;
+    
+        &:hover {
+            transform: scale(1.02);
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .home-card-content {
+            padding: 20px;
+
+            .home-card-title {
+                font-size: 25px;
+                margin-bottom: 15px;
+            }
+
+            .home-card-properties {
+                > div {
+                    &:nth-child(-n+3) {
+                        margin-bottom: 10px; 
+                    }
+                }
+            }
+        }
     }
-}
-
-.home-card-content {
-    padding: 20px;
-}
-
-.home-card-title {
-    font-size: 25px;
-    margin-bottom: 15px;
-}
-
-.home-card-property {
-    margin-bottom: 10px;
 }

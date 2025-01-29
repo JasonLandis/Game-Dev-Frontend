@@ -1,0 +1,33 @@
+.login-container {
+    max-width: fit-content;
+    margin-inline: auto; 
+    text-align: center;
+    
+    .login-title {
+        font-size: 30px;
+        font-weight: bold;
+        margin-bottom: 15px;
+    }
+
+    .login-content {
+        padding: 20px;
+        border: 2px solid black;
+        border-radius: 8px;
+        
+        > div {    
+            &:nth-child(-n+2) {
+                margin-bottom: 25px;
+            }
+    
+            > div {
+                font-size: 20px;
+                margin-bottom: 8px;            
+            }
+    
+            > input {
+                font-size: 15px;
+                height: 25px;
+            }
+        }
+    }    
+}

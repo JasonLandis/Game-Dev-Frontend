@@ -34,17 +34,26 @@ export default function Game() {
             <div className="game-title">
               <strong>{game.name}</strong>
             </div>
-            <div className="game-property">
-              <strong>Description:</strong> {game.description}
-            </div>
-            <div className="game-property">
-              <strong>Developer:</strong> {game.developer}
-            </div>
-            <div className="game-property">
-              <strong>Release Date:</strong> {game.release_date ?? 'Undetermined'}
-            </div>
-            <div className="game-property">
-              <strong>Price:</strong> {game.price ? `$${game.price.toFixed(2)}` : 'Undetermined'}
+            <div className="game-properties">
+              <div>
+                <strong>Description:</strong> {game.description}
+              </div>
+              <div>
+                <strong>Developer:</strong> {game.developer}
+              </div>
+              <div>
+                <strong>Release Date: </strong>
+                {game.release_date
+                  ? new Intl.DateTimeFormat('en-us', {
+                      dateStyle: 'medium',
+                      timeStyle: 'short',
+                      timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone
+                    }).format(new Date(game.release_date))
+                  : 'Undetermined'}
+              </div>
+              <div>
+                <strong>Price:</strong> {game.price ? `$${game.price.toFixed(2)}` : 'Undetermined'}
+              </div>
             </div>
           </>
         ) : error ? (
