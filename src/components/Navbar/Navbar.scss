@@ -14,8 +14,10 @@ nav {
         margin-right: auto;
     }
 
-    > :nth-child(3) {
-        margin-right: 25px;
+    > div {
+        :nth-child(2) {
+            margin-left: 25px;
+        }
     }
 
     :hover {

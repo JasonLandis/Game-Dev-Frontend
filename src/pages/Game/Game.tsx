@@ -58,6 +58,10 @@ export default function Game() {
             <div>
               <strong>Price:</strong> {game.price ? `$${game.price.toFixed(2)}` : 'Undetermined'}
             </div>
+            <div>
+              <button>Update</button>
+              <button>Delete</button>
+            </div>
           </div>
         </>
       ) : error ? (
