@@ -8,6 +8,7 @@ import Register from './pages/Register/Register';
 import Game from './pages/Game/Game';
 import NotFound from './pages/NotFound/NotFound';
 import Create from './pages/Create/Create';
+import Update from './pages/Update/Update';
 import { ErrorBoundary } from 'react-error-boundary';
 import UnknownError from './components/UnknownError/UnknownError';
 
@@ -24,6 +25,7 @@ export default function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/create" element={<Create />} />
             <Route path="/game/:id" element={<Game />} />
+            <Route path="/update/:id" element={<Update />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </AuthProvider>

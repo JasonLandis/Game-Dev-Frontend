@@ -64,8 +64,12 @@ export default function Create() {
             {errors.name && <div className="create-form-error">{`${errors.name.message}`}</div>}
           </div>
           <div>
-            <input {...register('description')} type="text" placeholder='Description' />
-            {errors.description && <div className="create-form-error">{`${errors.description.message}`}</div>}
+            <textarea 
+              {...register('description')} 
+              placeholder="Description" 
+              rows={8}
+            />
+            {errors.description && <div className="create-form-error">{errors.description.message}</div>}
           </div>
           <div>
             <input {...register('release_date')} type="date" placeholder='Release Date' />

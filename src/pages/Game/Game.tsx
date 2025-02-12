@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useErrorBoundary } from 'react-error-boundary';
 import axios, { AxiosError, AxiosResponse } from 'axios';
 import APIError from '../../components/APIError/APIError';
@@ -59,8 +59,7 @@ export default function Game() {
               <strong>Price:</strong> {game.price ? `$${game.price.toFixed(2)}` : 'Undetermined'}
             </div>
             <div>
-              <button>Update</button>
-              <button>Delete</button>
+              <Link to={`/update/${id}`}><button>Update</button></Link>
             </div>
           </div>
         </>
