@@ -1,0 +1,12 @@
+import './pages.scss';
+
+function About() {
+  return (
+    <div className="global-page-container">
+      <div className="about-title">About the Game Dev Blog project</div>
+      <div>A place where game developers can blog about their games.</div>
+    </div>
+  );
+}
+
+export default About;

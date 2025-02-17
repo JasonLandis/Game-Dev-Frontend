@@ -1,0 +1,43 @@
+@use "../app/index.scss" as *;
+
+nav {
+    display: flex;
+    padding: 20px;
+    border-bottom: 3px solid black;
+    font-weight: bold;
+
+    > :nth-child(1) {
+        margin-right: 25px;
+    }
+
+    > :nth-child(2) {
+        margin-right: auto;
+    }
+
+    > div {
+        :nth-child(2) {
+            margin-left: 25px;
+        }
+    }
+
+    :hover {
+        color: $global-link-hover-color;
+    }
+}
+
+.error-container {
+    max-width: fit-content;
+    margin-inline: auto;
+    text-align: center;
+
+    > :nth-child(1) {
+        font-size: 35px;
+        font-weight: bold;
+        color: $global-error-color;
+        margin-bottom: 8px;
+    }
+
+    > :nth-child(2) {
+        margin-bottom: 12px;
+    }
+}
