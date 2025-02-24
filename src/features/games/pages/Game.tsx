@@ -1,32 +1,29 @@
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useErrorBoundary } from 'react-error-boundary';
-import axios from 'axios';
+import { getGameById } from '../gamesService';
 import { TGame } from '../../../../../game-dev-shared/src/games';
-import './pages.scss';
+import '../games.scss';
 
-function Game() {
+export default function Game() {
   const { showBoundary } = useErrorBoundary();
   const { id } = useParams();
 
   const [game, setGame] = useState<TGame>();
 
   useEffect(() => {
-    const getGameById = async () => {
+    (async () => {
       try {
-        const response = await axios.get<TGame>(`http://localhost:4000/api/games/${id}`);
-        const game = response.data;
-        return setGame(game);
+        const game: TGame = await getGameById(id);
+        setGame(game);
       } catch (error) {
         showBoundary(error);
       }
-    };
-
-    getGameById();
-  }, [showBoundary, id]);
+    })();
+  }, [id, showBoundary]);
 
   return (
-    <div className="global-page-container">
+    <>
       {game ? (
         <>
           <div className="game-title">
@@ -53,15 +50,15 @@ function Game() {
               <strong>Price:</strong> {game.price ? `$${game.price}` : 'Undetermined'}
             </div>
             <div>
-              <Link to={`/update/${id}`}><button>Update</button></Link>
+              <Link to={`/update/${id}`}>
+                <button>Update</button>
+              </Link>
             </div>
           </div>
         </>
       ) : (
         <div>Loading...</div>
       )}
-    </div>
+    </>
   );
 }
-
-export default Game;

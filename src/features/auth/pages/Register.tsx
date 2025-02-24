@@ -5,7 +5,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import axios from 'axios';
 import useAuthContext from '../lib/hooks/useAuth';
 import { registerSchema, TRegisterSchema } from '../../../../../game-dev-shared/src/auth';
-import './pages.scss';
+import '../auth.scss';
 
 function Register() {
   const { showBoundary } = useErrorBoundary();
@@ -31,14 +31,14 @@ function Register() {
         {
           username,
           email,
-          password,
+          password
         },
         {
           withCredentials: true
         }
       );
-  
-      const accessToken = response.data;      
+
+      const accessToken = response.data;
       localStorage.setItem('accessToken', accessToken);
       setAccessToken(accessToken);
       return navigate('/');
@@ -53,19 +53,19 @@ function Register() {
         <form onSubmit={handleSubmit(onSubmit)} className="register-content">
           <div className="register-title">Register</div>
           <div>
-            <input {...register('username')} type="text" placeholder='Username' />
+            <input {...register('username')} type="text" placeholder="Username" />
             {errors.username && <div className="register-form-error">{`${errors.username.message}`}</div>}
           </div>
           <div>
-            <input {...register('email')} type="text" placeholder='Email' />
+            <input {...register('email')} type="text" placeholder="Email" />
             {errors.email && <div className="register-form-error">{`${errors.email.message}`}</div>}
           </div>
           <div>
-            <input {...register('password')} type="password" placeholder='Password' />
+            <input {...register('password')} type="password" placeholder="Password" />
             {errors.password && <div className="register-form-error">{`${errors.password.message}`}</div>}
           </div>
           <div>
-            <input {...register('confirmPassword')} type="password" placeholder='Confirm Password' />
+            <input {...register('confirmPassword')} type="password" placeholder="Confirm Password" />
             {errors.confirmPassword && <div className="register-form-error">{`${errors.confirmPassword.message}`}</div>}
           </div>
           <button type="submit" disabled={isSubmitting}>

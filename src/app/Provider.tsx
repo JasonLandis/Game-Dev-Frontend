@@ -1,16 +1,10 @@
-import { ReactNode } from "react";
+import { ReactNode } from 'react';
 import AuthProvider from '../features/auth/lib/providers/AuthProvider';
 
-interface ProviderProps {
+type TProviderProps = {
   children: ReactNode;
-}
+};
 
-function Provider({ children }: ProviderProps) {
-  return (
-    <AuthProvider>
-      {children}
-    </AuthProvider>
-  );
+export default function Provider({ children }: TProviderProps) {
+  return <AuthProvider>{children}</AuthProvider>;
 }
-
-export default Provider;

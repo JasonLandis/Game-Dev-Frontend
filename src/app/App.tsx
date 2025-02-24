@@ -1,16 +1,14 @@
 import { ErrorBoundary } from 'react-error-boundary';
 import Error from '../components/Error';
-import Provider from "./Provider";
-import Router from "./Router";
+import Provider from './Provider';
+import Router from './Router';
 
-function App() {
+export default function App() {
   return (
     <ErrorBoundary FallbackComponent={Error}>
-      <Provider>        
+      <Provider>
         <Router />
       </Provider>
     </ErrorBoundary>
   );
 }
-
-export default App;

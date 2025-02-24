@@ -5,7 +5,7 @@ import { FieldValues, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import axios from 'axios';
 import { gameSchema, TGameSchema, TGame } from '../../../../../game-dev-shared/src/games';
-import './pages.scss';
+import '../games.scss';
 
 function Update() {
   const { showBoundary } = useErrorBoundary();
@@ -26,7 +26,7 @@ function Update() {
       try {
         const response = await axios.get<TGame>(`http://localhost:4000/api/games/${id}`);
         const game = response.data;
-        
+
         setValue('name', game.name);
         setValue('description', game.description);
         setValue('release_date', game.release_date?.substring(0, 10));
@@ -58,7 +58,7 @@ function Update() {
           withCredentials: true
         }
       );
-  
+
       const gameId = response.data;
       return navigate(`/game/${gameId}`);
     } catch (error) {
@@ -68,12 +68,9 @@ function Update() {
 
   const onDelete = async () => {
     try {
-      await axios.delete<boolean>(
-        `http://localhost:4000/api/games/${id}`,
-        {
-          withCredentials: true
-        }
-      );
+      await axios.delete<boolean>(`http://localhost:4000/api/games/${id}`, {
+        withCredentials: true
+      });
 
       return navigate('/');
     } catch (error) {
@@ -87,26 +84,28 @@ function Update() {
         <form onSubmit={handleSubmit(onSubmit)} className="update-content">
           <div className="update-title">Update Game</div>
           <div>
-            <input {...register('name')} type="text" placeholder='Name' />
+            <input {...register('name')} type="text" placeholder="Name" />
             {errors.name && <div className="update-form-error">{`${errors.name.message}`}</div>}
           </div>
           <div>
-            <textarea 
-              {...register('description')} 
-              placeholder="Description" 
-              rows={8}
-            />
+            <textarea {...register('description')} placeholder="Description" rows={8} />
             {errors.description && <div className="update-form-error">{errors.description.message}</div>}
           </div>
           <div>
-            <input {...register('release_date', { setValueAs: (v) => v === "" || v === null ? undefined : new Date(v).toISOString() })} type="datetime-local" placeholder='Release Date' />
+            <input
+              {...register('release_date', { setValueAs: (v) => (v === '' || v === null ? undefined : new Date(v).toISOString()) })}
+              type="datetime-local"
+              placeholder="Release Date"
+            />
             {errors.release_date && <div className="update-form-error">{`${errors.release_date.message}`}</div>}
           </div>
           <div>
-            <input {...register('price', { setValueAs: (v) => v === "" || v === null ? undefined : parseFloat(v) })} 
-            type="number" 
-            placeholder='Price'
-            step="0.01" />
+            <input
+              {...register('price', { setValueAs: (v) => (v === '' || v === null ? undefined : parseFloat(v)) })}
+              type="number"
+              placeholder="Price"
+              step="0.01"
+            />
             {errors.price && <div className="update-form-error">{`${errors.price.message}`}</div>}
           </div>
           <div>
@@ -115,7 +114,7 @@ function Update() {
             </button>
           </div>
           <div>
-            <button type="button" className='update-delete-button' onClick={onDelete}>
+            <button type="button" className="update-delete-button" onClick={onDelete}>
               Delete
             </button>
           </div>

@@ -1,15 +1,14 @@
 import { Link } from 'react-router-dom';
-import useAuthContext from '../features/auth/lib/hooks/useAuth';
-import './components.scss';
+import useAuthContext from '../../features/auth/lib/hooks/useAuth';
+import '../layout.scss';
 
-function Navbar() {
+export default function Navbar() {
   const { accessToken } = useAuthContext();
 
   return (
     <nav>
-      <Link to="/">Home</Link>
-      <Link to="/about">About</Link>
-      { accessToken ? (
+      <Link to="/">Game Dev Blog</Link>
+      {accessToken ? (
         <div>
           <Link to="/create">Create</Link>
           <Link to="/profile">Profile</Link>
@@ -23,5 +22,3 @@ function Navbar() {
     </nav>
   );
 }
-
-export default Navbar;

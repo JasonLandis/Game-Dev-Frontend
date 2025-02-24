@@ -5,7 +5,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import axios from 'axios';
 import useAuthContext from '../lib/hooks/useAuth';
 import { loginSchema, TLoginSchema } from '../../../../../game-dev-shared/src/auth';
-import './pages.scss';
+import '../auth.scss';
 
 function Login() {
   const { showBoundary } = useErrorBoundary();
@@ -35,8 +35,8 @@ function Login() {
           withCredentials: true
         }
       );
-  
-      const accessToken = response.data;      
+
+      const accessToken = response.data;
       localStorage.setItem('accessToken', accessToken);
       setAccessToken(accessToken);
       return navigate('/');
@@ -51,11 +51,11 @@ function Login() {
         <form onSubmit={handleSubmit(onSubmit)} className="login-content">
           <div className="login-title">Login</div>
           <div>
-            <input {...register('username')} type="text" placeholder='Username' />
+            <input {...register('username')} type="text" placeholder="Username" />
             {errors.username && <div className="login-form-error">{`${errors.username.message}`}</div>}
           </div>
           <div>
-            <input {...register('password')} type="password" placeholder='Password' />
+            <input {...register('password')} type="password" placeholder="Password" />
             {errors.password && <div className="login-form-error">{`${errors.password.message}`}</div>}
           </div>
           <button type="submit" disabled={isSubmitting}>

@@ -1,0 +1,56 @@
+@use "../app/global.scss" as *;
+
+nav {
+    display: flex;
+    align-items: center;
+    height: 57px;
+    border-bottom: 3px solid black;
+    font-weight: bold;
+    padding-inline: 25px;
+    background-color: $global-dark-gray;
+
+    > :nth-child(1) {
+        font-size: 20px;
+        margin-right: auto;
+    }
+
+    > div {
+        :hover {
+            color: $global-link-hover-color;
+        }
+
+        :nth-child(2) {
+            margin-left: 25px;
+        }
+    }
+}
+
+.layout-container {
+    display: flex;
+}
+
+.sidebar-container {
+    min-height: calc(100vh - 60px);
+    min-width: 197px;
+    text-align: center;
+    border-right: 3px solid black;
+    font-weight: bold;
+    background-color: $global-dark-gray;
+
+    .sidebar-content {
+        margin: 20px;
+        
+        > a {
+            display: block;
+            padding: 5px 0;
+            width: 100%;
+            border: 2px solid black;
+            border-radius: 5px;
+        }
+    }
+}
+
+main {
+    padding: 20px;
+    background: linear-gradient($global-dark-gray, #494949);
+}

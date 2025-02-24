@@ -1,0 +1,30 @@
+.about-title {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.home-grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+}
+
+.home-loading-container {
+    @keyframes load {
+        0% {opacity: 1;}
+        50% {opacity: 0.5;}
+        100% {opacity: 1;}
+    }
+
+    > div {
+        height: 200px;
+        background-color: rgb(228, 228, 228);
+        border-radius: 8px;
+        animation: load 1s infinite;
+    }
+}
+
+.not-found-title {
+    font-size: 30px;
+}
