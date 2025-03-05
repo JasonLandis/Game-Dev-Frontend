@@ -1,26 +1,22 @@
-@use "../app/global.scss" as *;
+@use "../global.scss" as *;
 
 nav {
     display: flex;
     align-items: center;
     height: 57px;
-    border-bottom: 3px solid black;
-    font-weight: bold;
-    padding-inline: 25px;
     background-color: $global-dark-gray;
+    border-bottom: 3px solid $global-border-color;
+    font-weight: bold;
+    padding-inline: 20px;
 
-    > :nth-child(1) {
+    .navbar-logo {
         font-size: 20px;
         margin-right: auto;
     }
 
-    > div {
-        :hover {
-            color: $global-link-hover-color;
-        }
-
+    div {
         :nth-child(2) {
-            margin-left: 25px;
+            margin-left: 10px;
         }
     }
 }
@@ -33,24 +29,21 @@ nav {
     min-height: calc(100vh - 60px);
     min-width: 197px;
     text-align: center;
-    border-right: 3px solid black;
-    font-weight: bold;
     background-color: $global-dark-gray;
+    border-right: 3px solid $global-border-color;
+    font-weight: bold;
 
     .sidebar-content {
-        margin: 20px;
-        
-        > a {
+        padding: 20px;
+
+        .sidebar-button {
             display: block;
-            padding: 5px 0;
-            width: 100%;
-            border: 2px solid black;
-            border-radius: 5px;
         }
     }
 }
 
 main {
+    background: linear-gradient($global-dark-gray, $global-light-gray);
     padding: 20px;
-    background: linear-gradient($global-dark-gray, #494949);
+    width: 100%;
 }

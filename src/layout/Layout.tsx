@@ -1,8 +1,8 @@
 import { Outlet, useLocation } from 'react-router-dom';
 import { ErrorBoundary } from 'react-error-boundary';
-import Error from '../components/Error';
 import Navbar from './components/Navbar';
 import Sidebar from './components/Sidebar';
+import Error from '../components/Error';
 import './layout.scss';
 
 export default function Layout() {

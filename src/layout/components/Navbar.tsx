@@ -7,16 +7,26 @@ export default function Navbar() {
 
   return (
     <nav>
-      <Link to="/">Game Dev Blog</Link>
+      <Link to="/" className="navbar-logo">
+        Game Dev Blog
+      </Link>
       {accessToken ? (
         <div>
-          <Link to="/create">Create</Link>
-          <Link to="/profile">Profile</Link>
+          <Link to="/create" className="global-button">
+            Create
+          </Link>
+          <Link to="/profile" className="global-button">
+            Profile
+          </Link>
         </div>
       ) : (
         <div>
-          <Link to="/login">Login</Link>
-          <Link to="/register">Register</Link>
+          <Link to="/login" className="global-button">
+            Login
+          </Link>
+          <Link to="/register" className="global-button">
+            Register
+          </Link>
         </div>
       )}
     </nav>

@@ -5,7 +5,9 @@ export default function Sidebar() {
   return (
     <div className="sidebar-container">
       <div className="sidebar-content">
-        <Link to="/about">About</Link>
+        <Link to="/about" className="global-button sidebar-button">
+          About
+        </Link>
       </div>
     </div>
   );

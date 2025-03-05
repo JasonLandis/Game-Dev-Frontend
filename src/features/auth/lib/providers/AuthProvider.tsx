@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react';
+import { ReactNode, useEffect, useState } from 'react';
 import axios from 'axios';
 import AuthContext from '../contexts/AuthContext';
 
-const AuthProvider = ({ children }: { children: React.ReactNode }) => {
+const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [accessToken, setAccessToken] = useState<string | null>(null);
   const [isReady, setIsReady] = useState(false);
 
@@ -15,11 +15,7 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     setIsReady(true);
   }, []);
 
-  const isLoggedIn = () => {
-    return !!accessToken;
-  };
-
-  return <AuthContext.Provider value={{ accessToken, setAccessToken, isLoggedIn }}>{isReady ? children : null}</AuthContext.Provider>;
+  return <AuthContext.Provider value={ accessToken }>{isReady ? children : null}</AuthContext.Provider>;
 };
 
 export default AuthProvider;
