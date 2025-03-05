@@ -1,25 +1,14 @@
-import { useState, useEffect } from 'react';
-import { useErrorBoundary } from 'react-error-boundary';
+import { useState } from 'react';
 import GameCard from '../../../components/GameCard';
+import useServer from '../../../hooks/useServer';
 import { getGames } from '../coreService';
 import { TGame } from '../../../../../game-dev-shared/src/games';
-import '../core.scss';
+import './styles/home.scss';
 
 export default function Home() {
-  const { showBoundary } = useErrorBoundary();
-
   const [games, setGames] = useState<TGame[]>();
-
-  useEffect(() => {
-    (async () => {
-      try {
-        const games: TGame[] = await getGames();
-        setGames(games);
-      } catch (error) {
-        showBoundary(error);
-      }
-    })();
-  }, [showBoundary]);
+  const data: TGame[] = useServer(getGames);
+  setGames(data);
 
   return (
     <>
@@ -30,17 +19,7 @@ export default function Home() {
           ))}
         </div>
       ) : (
-        <div className="home-grid-container home-loading-container">
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
+        <>Loading...</>
       )}
     </>
   );

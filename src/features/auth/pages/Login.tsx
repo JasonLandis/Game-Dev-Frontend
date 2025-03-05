@@ -1,24 +1,17 @@
 import { useNavigate } from 'react-router-dom';
 import { useErrorBoundary } from 'react-error-boundary';
-import { FieldValues, useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
+import { FieldValues } from 'react-hook-form';
 import axios from 'axios';
 import useAuthContext from '../lib/hooks/useAuth';
-import { loginSchema, TLoginSchema } from '../../../../../game-dev-shared/src/auth';
+import { loginSchema } from '../../../../../game-dev-shared/src/auth';
+import Form from '../components/Form';
+import FormInput from '../components/FormInput';
 import '../auth.scss';
 
-function Login() {
+export default function Login() {
   const { showBoundary } = useErrorBoundary();
   const { setAccessToken } = useAuthContext();
   const navigate = useNavigate();
-
-  const {
-    register,
-    handleSubmit,
-    formState: { errors, isSubmitting }
-  } = useForm<TLoginSchema>({
-    resolver: zodResolver(loginSchema)
-  });
 
   const onSubmit = async (data: FieldValues) => {
     try {
@@ -46,25 +39,9 @@ function Login() {
   };
 
   return (
-    <div className="global-page-container">
-      <div className="login-container">
-        <form onSubmit={handleSubmit(onSubmit)} className="login-content">
-          <div className="login-title">Login</div>
-          <div>
-            <input {...register('username')} type="text" placeholder="Username" />
-            {errors.username && <div className="login-form-error">{`${errors.username.message}`}</div>}
-          </div>
-          <div>
-            <input {...register('password')} type="password" placeholder="Password" />
-            {errors.password && <div className="login-form-error">{`${errors.password.message}`}</div>}
-          </div>
-          <button type="submit" disabled={isSubmitting}>
-            Submit
-          </button>
-        </form>
-      </div>
-    </div>
+    <Form submitFunction={onSubmit} resolver={loginSchema} title={'Login'}>
+      <FormInput register={'username'} type={'text'} placeholder={'Username'} />
+      <FormInput register={'password'} type={'password'} placeholder={'Password'} />
+    </Form>
   );
 }
-
-export default Login;

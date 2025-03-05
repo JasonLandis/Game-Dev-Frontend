@@ -1,0 +1,11 @@
+@use "../../global.scss";
+
+.layout-container {
+    display: flex;
+}
+
+main {
+    background: linear-gradient($global-dark-gray, $global-light-gray);
+    padding: 20px;
+    width: 100%;
+}

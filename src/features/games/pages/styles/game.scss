@@ -1,0 +1,16 @@
+.game-title {
+    font-size: 35px;
+    margin-bottom: 20px;
+}
+
+.game-properties {
+    > :nth-child(-n+4) {
+        margin-bottom: 10px;
+    }
+
+    > div > button {
+        &:nth-child(1) {
+            margin-right: 10px;
+        }
+    }
+}

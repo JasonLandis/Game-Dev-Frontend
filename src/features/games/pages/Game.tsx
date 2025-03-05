@@ -1,26 +1,16 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { useErrorBoundary } from 'react-error-boundary';
+import useServer from '../../../hooks/useServer';
 import { getGameById } from '../gamesService';
 import { TGame } from '../../../../../game-dev-shared/src/games';
-import '../games.scss';
+import './styles/game.scss';
 
 export default function Game() {
-  const { showBoundary } = useErrorBoundary();
   const { id } = useParams();
 
   const [game, setGame] = useState<TGame>();
-
-  useEffect(() => {
-    (async () => {
-      try {
-        const game: TGame = await getGameById(id);
-        setGame(game);
-      } catch (error) {
-        showBoundary(error);
-      }
-    })();
-  }, [id, showBoundary]);
+  const data: TGame = useServer(getGameById, id);
+  setGame(data);
 
   return (
     <>

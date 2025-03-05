@@ -4,33 +4,33 @@ $global-light-gray: rgb(73, 73, 73);
 $global-border-color: rgb(41, 41, 41);
 
 body {
-  margin: 0;
-  color: white;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 a {
-  text-decoration: none;
-  color: unset;
+    text-decoration: none;
+    color: unset;
 }
 
 input {
-  font-size: 15px;
-  height: 25px;
-  width: 250px;
-  border: 1px solid $global-border-color;
-  border-radius: 4px;
-  padding-left: 5px;
+    font-size: 15px;
+    height: 25px;
+    width: 250px;
+    border: 1px solid $global-border-color;
+    border-radius: 4px;
+    padding-left: 5px;
 }
 
 textarea {
-  font-size: 15px;
-  width: 250px;
-  border: 1px solid $global-border-color;
-  border-radius: 4px;
-  padding-left: 5px;
+    font-size: 15px;
+    width: 250px;
+    border: 1px solid $global-border-color;
+    border-radius: 4px;
+    padding-left: 5px;
 }
 
 .global-error {
-  color: $global-error-color;
+    color: $global-error-color;
 }

@@ -3,9 +3,7 @@ import { AxiosError } from 'axios';
 import Button from './Button';
 import './styles/Error.scss';
 
-export default function Error(props: FallbackProps) {
-  const { error, resetErrorBoundary } = props;
-
+export default function Error({ error, resetErrorBoundary }: FallbackProps) {
   let serverError = false;
   if (error instanceof AxiosError && error.response) {
     serverError = true;
@@ -28,7 +26,7 @@ export default function Error(props: FallbackProps) {
           <strong>Message:</strong> {error.message}
         </div>
       )}
-      <Button eventHandler={resetErrorBoundary}>Reload</Button>
+      <Button clickEvent={resetErrorBoundary}>Reload</Button>
     </div>
   );
 }

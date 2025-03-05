@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import useAuthContext from '../../features/auth/lib/hooks/useAuth';
-import '../layout.scss';
+import '../styles/navbar.scss';
 
 export default function Navbar() {
   const { accessToken } = useAuthContext();
@@ -12,19 +12,19 @@ export default function Navbar() {
       </Link>
       {accessToken ? (
         <div>
-          <Link to="/create" className="global-button">
+          <Link to="/create" className="navbar-link">
             Create
           </Link>
-          <Link to="/profile" className="global-button">
+          <Link to="/profile" className="navbar-link">
             Profile
           </Link>
         </div>
       ) : (
         <div>
-          <Link to="/login" className="global-button">
+          <Link to="/login" className="navbar-link">
             Login
           </Link>
-          <Link to="/register" className="global-button">
+          <Link to="/register" className="navbar-link">
             Register
           </Link>
         </div>

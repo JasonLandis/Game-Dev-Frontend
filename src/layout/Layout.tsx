@@ -3,7 +3,7 @@ import { ErrorBoundary } from 'react-error-boundary';
 import Navbar from './components/Navbar';
 import Sidebar from './components/Sidebar';
 import Error from '../components/Error';
-import './layout.scss';
+import './styles/layout.scss';
 
 export default function Layout() {
   const location = useLocation();

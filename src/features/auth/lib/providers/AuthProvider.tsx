@@ -13,9 +13,9 @@ const AuthProvider = ({ children }: { children: ReactNode }) => {
       axios.defaults.headers.common['Authorization'] = 'Bearer ' + token;
     }
     setIsReady(true);
-  }, []);
+  }, [accessToken]);
 
-  return <AuthContext.Provider value={ accessToken }>{isReady ? children : null}</AuthContext.Provider>;
+  return <AuthContext.Provider value={{ accessToken, setAccessToken }}>{isReady ? children : null}</AuthContext.Provider>;
 };
 
 export default AuthProvider;

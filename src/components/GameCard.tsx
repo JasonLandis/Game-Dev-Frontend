@@ -1,8 +1,12 @@
 import { Link } from 'react-router-dom';
 import { TGame } from '../../../game-dev-shared/src/games';
-import './styles/game-card.scss';
+import './styles/gamecard.scss';
 
-export default function GameCard({ game }: { game: TGame }) {
+type TGameProps = {
+  game: TGame
+}
+
+export default function GameCard({ game }: TGameProps) {
   return (
     <Link to={`/game/${game.game_id}`} className="game-card">
       <div className="game-card-content">
