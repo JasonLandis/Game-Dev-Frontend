@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import useServer from '../../../hooks/useServer';
+import useServer from '../../../lib/hooks/useServer';
 import { getGameById } from '../gamesService';
 import { TGame } from '../../../../../game-dev-shared/src/games';
 import './styles/game.scss';

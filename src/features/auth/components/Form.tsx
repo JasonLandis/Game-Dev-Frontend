@@ -5,13 +5,13 @@ import Button from '../../../components/Button';
 import './styles/form.scss';
 
 type TFormProps = {
-  children: ReactNode,
-  submitFunction: (data: FieldValues) => Promise<void>,
-  resolver: any,
-  title: string
-}
+  children: ReactNode;
+  submitFunction: (data: FieldValues) => Promise<void>;
+  resolver: any;
+  title: string;
+};
 
-export default function Form({children, submitFunction, resolver, title}: TFormProps) {
+export default function Form({ children, submitFunction, resolver, title }: TFormProps) {
   const {
     register,
     handleSubmit,
@@ -20,18 +20,16 @@ export default function Form({children, submitFunction, resolver, title}: TFormP
     resolver: zodResolver(resolver)
   });
 
-  {Children.map(children, (child, index) => (
-    <li key={index}>{child}</li>
-  ))}
+  {
+    Children.map(children, (child, index) => <li key={index}>{child}</li>);
+  }
 
   return (
     <div className="form-container">
       <form onSubmit={handleSubmit(submitFunction)} className="form-content">
         <div className="form-title">{title}</div>
         {Children.map(children, (child, index) => (
-          <div key={index}>
-            {child}
-          </div>
+          <div key={index}>{child}</div>
         ))}
         <Button type={'submit'} disabled={isSubmitting}>
           Submit

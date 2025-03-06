@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
 import { useErrorBoundary } from 'react-error-boundary';
 
-const { showBoundary } = useErrorBoundary();
 
-export default function useServer(serviceFunction: ({}: any) => Promise<any>, params: any) {
-  const [data, setData] = useState<any>(null)
+
+export default function useServer<T>(serviceFunction: () => Promise<T>) {
+  const { showBoundary } = useErrorBoundary();
+  const [data, setData] = useState<any>(null);
 
   useEffect(() => {
     let ignore = false;
@@ -12,7 +13,7 @@ export default function useServer(serviceFunction: ({}: any) => Promise<any>, pa
       try {
         const responseData = serviceFunction(params);
         if (!ignore) {
-          setData(responseData)
+          setData(responseData);
         }
       } catch (error) {
         showBoundary(error);

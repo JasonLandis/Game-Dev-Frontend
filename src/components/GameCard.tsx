@@ -3,17 +3,17 @@ import { TGame } from '../../../game-dev-shared/src/games';
 import './styles/gamecard.scss';
 
 type TGameProps = {
-  game: TGame
-}
+  game: TGame;
+};
 
 export default function GameCard({ game }: TGameProps) {
   return (
-    <Link to={`/game/${game.game_id}`} className="game-card">
-      <div className="game-card-content">
-        <div className="game-card-title">
+    <Link to={`/game/${game.game_id}`} className="gamecard">
+      <div className="gamecard-content">
+        <div className="gamecard-title">
           <strong>{game.name}</strong>
         </div>
-        <div className="game-card-properties">
+        <div className="gamecard-properties">
           <div>
             <strong>Description: </strong>
             {game.description}

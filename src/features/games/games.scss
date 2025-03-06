@@ -1,71 +1,71 @@
-@use "../../global.scss" as *;
+@use '../../global.scss' as *;
 
 .create-container {
-    max-width: fit-content;
-    margin-inline: auto;
+  max-width: fit-content;
+  margin-inline: auto;
 
-    .create-content {
-        padding: 20px;
-        border: 2px solid black;
-        border-radius: 8px;
-        margin-bottom: 20px;
+  .create-content {
+    padding: 20px;
+    border: 2px solid black;
+    border-radius: 8px;
+    margin-bottom: 20px;
 
-        .create-title {
-            font-size: 30px;
-            font-weight: bold;
-            text-align: center;
-        }
-        
-        > div {
-            margin-bottom: 12px;
-        }
+    .create-title {
+      font-size: 30px;
+      font-weight: bold;
+      text-align: center;
+    }
 
-        .create-form-error {
-            color: $global-error-color;
-            font-size: 14px;
-            margin-top: 7px;
-            max-width: 260px;
-        }
+    > div {
+      margin-bottom: 12px;
+    }
 
-        button {
-            width: 260px;
-        }
-    }    
+    .create-form-error {
+      color: $global-error-color;
+      font-size: 14px;
+      margin-top: 7px;
+      max-width: 260px;
+    }
+
+    button {
+      width: 260px;
+    }
+  }
 }
 
 .update-container {
-    max-width: fit-content;
-    margin-inline: auto;
+  max-width: fit-content;
+  margin-inline: auto;
 
-    .update-content {
-        padding: 20px;
-        border: 2px solid black;
-        border-radius: 8px;
-        margin-bottom: 20px;
+  .update-content {
+    padding: 20px;
+    border: 2px solid black;
+    border-radius: 8px;
+    margin-bottom: 20px;
 
-        .update-title {
-            font-size: 30px;
-            font-weight: bold;
-            text-align: center;
-        }
-        
-        > div {
-            margin-bottom: 12px;
-        }
+    .update-title {
+      font-size: 30px;
+      font-weight: bold;
+      text-align: center;
+    }
 
-        .update-form-error {
-            color: $global-error-color;
-            font-size: 14px;
-            margin-top: 7px;
-            max-width: 260px;
-        }
+    > div {
+      margin-bottom: 12px;
+    }
 
-        button {
-            width: 260px;
-        }
+    .update-form-error {
+      color: $global-error-color;
+      font-size: 14px;
+      margin-top: 7px;
+      max-width: 260px;
+    }
 
-        .update-delete-button {
-            background-color: $global-error-color;
-        }
-    }    
+    button {
+      width: 260px;
+    }
+
+    .update-delete-button {
+      background-color: $global-error-color;
+    }
+  }
 }

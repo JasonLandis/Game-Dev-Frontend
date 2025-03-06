@@ -5,7 +5,7 @@
     "start": "vite preview",
     "start:dev": "vite",
     "lint": "eslint ./src",
-    "prettier": "prettier --config .prettierrc.json src/**/*{.tsx,.css} --write"
+    "prettier": "prettier --config .prettierrc.json src/**/*{.tsx,.ts,.scss} --write"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import GameCard from '../../../components/GameCard';
-import useServer from '../../../hooks/useServer';
+import useServer from '../../../lib/hooks/useServer';
 import { getGames } from '../coreService';
 import { TGame } from '../../../../../game-dev-shared/src/games';
 import './styles/home.scss';
