@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import NavbarLink from './NavbarLink';
 import useAuthContext from '../../features/auth/lib/hooks/useAuth';
 import '../styles/navbar.scss';
 
@@ -6,29 +7,37 @@ export default function Navbar() {
   const { accessToken } = useAuthContext();
 
   return (
-    <nav>
+    <div className="navbar">
       <Link to="/" className="navbar-logo">
         Game Dev Blog
       </Link>
       {accessToken ? (
-        <div>
-          <Link to="/create" className="navbar-link">
-            Create
+        <>
+          <Link to="/create" className='navbar-margin-right'>
+            <NavbarLink>
+              Create
+            </NavbarLink>
           </Link>
-          <Link to="/profile" className="navbar-link">
-            Profile
+          <Link to="/profile">
+            <NavbarLink>
+              Profile
+            </NavbarLink>
           </Link>
-        </div>
+        </>
       ) : (
-        <div>
-          <Link to="/login" className="navbar-link">
-            Login
+        <>
+          <Link to="/login" className='navbar-margin-right'>
+            <NavbarLink>
+              Login
+            </NavbarLink>
           </Link>
-          <Link to="/register" className="navbar-link">
-            Register
+          <Link to="/register">
+            <NavbarLink>
+              Register
+            </NavbarLink>
           </Link>
-        </div>
+        </>
       )}
-    </nav>
+    </div>
   );
 }

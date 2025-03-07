@@ -1,10 +1,10 @@
-@use '../../global.scss';
+@use '../../app/global.scss' as *;
 
 .layout-container {
   display: flex;
 }
 
-main {
+.layout-main {
   background: linear-gradient($global-dark-gray, $global-light-gray);
   padding: 20px;
   width: 100%;

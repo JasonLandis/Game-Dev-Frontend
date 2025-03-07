@@ -1,17 +1,16 @@
 import { useState, useEffect } from 'react';
 import { useErrorBoundary } from 'react-error-boundary';
+import { TGame } from '../../../../game-dev-shared/src/games';
 
-
-
-export default function useServer<T>(serviceFunction: () => Promise<T>) {
+export default function useServer(serviceFunction: () => Promise<TGame[]>) {
   const { showBoundary } = useErrorBoundary();
-  const [data, setData] = useState<any>(null);
+  const [data, setData] = useState<TGame[]>([]);
 
   useEffect(() => {
     let ignore = false;
     (async () => {
       try {
-        const responseData = serviceFunction(params);
+        const responseData = await serviceFunction();
         if (!ignore) {
           setData(responseData);
         }
@@ -23,7 +22,7 @@ export default function useServer<T>(serviceFunction: () => Promise<T>) {
         ignore = true;
       };
     })();
-  }, []);
+  }, [serviceFunction, showBoundary]);
 
   return data;
 }

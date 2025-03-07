@@ -13,11 +13,11 @@ export default function Layout() {
       <Navbar />
       <div className="layout-container">
         <Sidebar />
-        <main>
+        <div className="layout-main">
           <ErrorBoundary FallbackComponent={Error} key={location.pathname}>
             <Outlet />
           </ErrorBoundary>
-        </main>
+        </div>
       </div>
     </>
   );

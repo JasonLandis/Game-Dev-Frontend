@@ -1,0 +1,16 @@
+.navbarlink {
+    background-color: rgb(56, 56, 56);
+    color: white;
+    border: unset;
+    cursor: pointer;
+    padding: 10px 15px;
+    border-radius: 8px;
+  
+    &:hover {
+      background-color: rgb(65, 65, 65);
+    }
+  
+    &:active {
+      background-color: rgb(71, 71, 71);
+    }
+}
