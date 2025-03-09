@@ -4,7 +4,7 @@ import { FieldValues, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import axios from 'axios';
 import { gameSchema, TGameSchema } from '../../../../../game-dev-shared/src/games';
-import '../games.scss';
+import './styles/create.scss';
 
 function Create() {
   const { showBoundary } = useErrorBoundary();

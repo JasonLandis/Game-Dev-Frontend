@@ -2,12 +2,13 @@ import { useNavigate } from 'react-router-dom';
 import { useErrorBoundary } from 'react-error-boundary';
 import { FieldValues, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import axios from 'axios';
 import useAuthContext from '../lib/hooks/useAuth';
+import Button from '../../../components/Button';
+import { registerUser } from '../authService';
 import { registerSchema, TRegisterSchema } from '../../../../../game-dev-shared/src/auth';
-import '../auth.scss';
+import './styles/register.scss';
 
-function Register() {
+export default function Register() {
   const { showBoundary } = useErrorBoundary();
   const { setAccessToken } = useAuthContext();
   const navigate = useNavigate();
@@ -26,19 +27,8 @@ function Register() {
       const email = data.email;
       const password = data.password;
 
-      const response = await axios.post<string>(
-        'http://localhost:4000/auth/register',
-        {
-          username,
-          email,
-          password
-        },
-        {
-          withCredentials: true
-        }
-      );
+      const accessToken = await registerUser(username, email, password);
 
-      const accessToken = response.data;
       localStorage.setItem('accessToken', accessToken);
       setAccessToken(accessToken);
       return navigate('/');
@@ -48,33 +38,29 @@ function Register() {
   };
 
   return (
-    <div className="global-page-container">
-      <div className="register-container">
-        <form onSubmit={handleSubmit(onSubmit)} className="register-content">
-          <div className="register-title">Register</div>
-          <div>
-            <input {...register('username')} type="text" placeholder="Username" />
-            {errors.username && <div className="register-form-error">{`${errors.username.message}`}</div>}
-          </div>
-          <div>
-            <input {...register('email')} type="text" placeholder="Email" />
-            {errors.email && <div className="register-form-error">{`${errors.email.message}`}</div>}
-          </div>
-          <div>
-            <input {...register('password')} type="password" placeholder="Password" />
-            {errors.password && <div className="register-form-error">{`${errors.password.message}`}</div>}
-          </div>
-          <div>
-            <input {...register('confirmPassword')} type="password" placeholder="Confirm Password" />
-            {errors.confirmPassword && <div className="register-form-error">{`${errors.confirmPassword.message}`}</div>}
-          </div>
-          <button type="submit" disabled={isSubmitting}>
-            Submit
-          </button>
-        </form>
-      </div>
+    <div className="register-container">
+      <form onSubmit={handleSubmit(onSubmit)} className="register-content">
+        <div className="register-title">Register</div>
+        <div>
+          <input {...register('username')} type="text" placeholder="Username" className="register-input" />
+          {errors.username && <div className="register-error">{`${errors.username.message}`}</div>}
+        </div>
+        <div>
+          <input {...register('email')} type="text" placeholder="Email" className="register-input" />
+          {errors.email && <div className="register-error">{`${errors.email.message}`}</div>}
+        </div>
+        <div>
+          <input {...register('password')} type="password" placeholder="Password" className="register-input" />
+          {errors.password && <div className="register-error">{`${errors.password.message}`}</div>}
+        </div>
+        <div>
+          <input {...register('confirmPassword')} type="password" placeholder="Confirm Password" className="register-input" />
+          {errors.confirmPassword && <div className="register-error">{`${errors.confirmPassword.message}`}</div>}
+        </div>
+        <Button type="submit" disabled={isSubmitting}>
+          Submit
+        </Button>
+      </form>
     </div>
   );
 }
-
-export default Register;

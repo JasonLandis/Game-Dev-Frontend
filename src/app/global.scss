@@ -1,10 +1,9 @@
-$global-error-color: rgb(240, 89, 89);
-$global-dark-gray: rgb(39, 39, 39);
-$global-light-gray: rgb(56, 56, 56);
+@use '../app/globalvars.scss' as *;
 
 body {
   margin: 0;
   color: white;
+  background-color: $global-dark-gray;
   font-family: 'Commissioner', sans-serif;
 }
 

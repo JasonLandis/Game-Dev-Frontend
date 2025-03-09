@@ -1,16 +1,16 @@
-import { useState } from 'react';
+import { useMemo } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import useServer from '../../../lib/hooks/useServer';
 import { getGameById } from '../gamesService';
 import { TGame } from '../../../../../game-dev-shared/src/games';
 import './styles/game.scss';
+import Button from '../../../components/Button';
 
 export default function Game() {
   const { id } = useParams();
 
-  const [game, setGame] = useState<TGame>();
-  const data: TGame = useServer(getGameById, id);
-  setGame(data);
+  const params = useMemo(() => [id], [id])
+  const game: TGame | undefined = useServer(getGameById, params);
 
   return (
     <>
@@ -41,13 +41,15 @@ export default function Game() {
             </div>
             <div>
               <Link to={`/update/${id}`}>
-                <button>Update</button>
+                <Button>
+                  Update
+                </Button>
               </Link>
             </div>
           </div>
         </>
       ) : (
-        <div>Loading...</div>
+        <>Loading...</>
       )}
     </>
   );
