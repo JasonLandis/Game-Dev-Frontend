@@ -1,8 +1,9 @@
 import { createContext } from 'react';
 
 type TAuthContext = {
-  accessToken: string | null;
-  setAccessToken: React.Dispatch<React.SetStateAction<string | null>>;
+  accessToken: string | undefined;
+  setAccessToken: React.Dispatch<React.SetStateAction<string | undefined>>;
+  userId: string | undefined;
 };
 
 const AuthContext = createContext<TAuthContext>({} as TAuthContext);

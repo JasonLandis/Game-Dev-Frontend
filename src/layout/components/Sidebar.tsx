@@ -7,9 +7,7 @@ export default function Sidebar() {
     <div className="sidebar-container">
       <div className="sidebar-content">
         <Link to="/about">
-          <SidebarLink>
-            About
-          </SidebarLink>
+          <SidebarLink>About</SidebarLink>
         </Link>
       </div>
     </div>

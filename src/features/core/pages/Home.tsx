@@ -3,6 +3,7 @@ import GameCard from '../../../components/GameCard';
 import useServer from '../../../lib/hooks/useServer';
 import { getGames } from '../coreService';
 import { TGame } from '../../../../../game-dev-shared/src/games';
+import Loader from '../../../components/Loader';
 import './styles/home.scss';
 
 export default function Home() {
@@ -18,7 +19,7 @@ export default function Home() {
           ))}
         </div>
       ) : (
-        <>Loading...</>
+        <Loader />
       )}
     </>
   );

@@ -2,16 +2,19 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Layout from '../layout/Layout';
 import PrivateRoutes from '../lib/utils/PrivateRoutes';
 
+import Login from '../features/auth/pages/Login';
+import Register from '../features/auth/pages/Register';
+
 import Home from '../features/core/pages/Home';
 import About from '../features/core/pages/About';
 import NotFound from '../features/core/pages/NotFound';
 
 import Game from '../features/games/pages/Game';
-import Create from '../features/games/pages/Create';
-import Update from '../features/games/pages/Update';
+import CreateGame from '../features/games/pages/CreateGame';
+import UpdateGame from '../features/games/pages/UpdateGame';
 
-import Login from '../features/auth/pages/Login';
-import Register from '../features/auth/pages/Register';
+import Profile from '../features/profiles/pages/Profile';
+import UpdateProfile from '../features/profiles/pages/UpdateProfile';
 
 export default function Router() {
   return (
@@ -23,9 +26,11 @@ export default function Router() {
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
           <Route path="game/:id" element={<Game />} />
+          <Route path="profile/:id" element={<Profile />} />
           <Route element={<PrivateRoutes />}>
-            <Route path="create" element={<Create />} />
-            <Route path="update/:id" element={<Update />} />
+            <Route path="creategame" element={<CreateGame />} />
+            <Route path="updategame/:id" element={<UpdateGame />} />
+            <Route path="updateprofile/:id" element={<UpdateProfile />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Route>

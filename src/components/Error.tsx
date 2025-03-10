@@ -1,7 +1,7 @@
 import { FallbackProps } from 'react-error-boundary';
 import { AxiosError } from 'axios';
 import Button from './Button';
-import './styles/Error.scss';
+import './styles/error.scss';
 
 export default function Error({ error, resetErrorBoundary }: FallbackProps) {
   let serverError = false;

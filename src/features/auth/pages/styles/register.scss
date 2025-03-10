@@ -22,14 +22,14 @@
     }
 
     .register-input {
-        background-color: rgb(218, 218, 218);
-        font-size: 15px;
-        height: 25px;
-        width: 250px;
-        border: unset;
-        border-radius: 4px;
-        padding-left: 5px;
-      }
+      background-color: rgb(218, 218, 218);
+      font-size: 15px;
+      height: 25px;
+      width: 250px;
+      border: unset;
+      border-radius: 4px;
+      padding-left: 5px;
+    }
 
     .register-error {
       color: $global-error-color;
@@ -39,7 +39,7 @@
     }
 
     > :last-child {
-        width: 100%;
+      width: 100%;
     }
   }
 }

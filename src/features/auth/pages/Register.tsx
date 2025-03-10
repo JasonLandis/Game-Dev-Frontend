@@ -26,8 +26,9 @@ export default function Register() {
       const username = data.username;
       const email = data.email;
       const password = data.password;
+      const confirmPassword = data.confirmPassword;
 
-      const accessToken = await registerUser(username, email, password);
+      const accessToken = await registerUser(username, email, password, confirmPassword);
 
       localStorage.setItem('accessToken', accessToken);
       setAccessToken(accessToken);

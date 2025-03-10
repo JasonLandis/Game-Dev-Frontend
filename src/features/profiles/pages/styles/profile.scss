@@ -1,0 +1,24 @@
+.profile-username {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.profile-bio {
+  margin-bottom: 10px;
+}
+
+.profile-update {
+  margin-right: 10px;
+}
+
+.profile-games {
+  font-size: 40px;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+.profile-grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+}

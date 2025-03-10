@@ -1,17 +1,17 @@
 @use '../../../../app/globalvars.scss' as *;
 
-.login-container {
+.create-container {
   max-width: fit-content;
   margin-inline: auto;
 
-  .login-content {
+  .create-content {
     background-color: $global-dark-gray;
     padding: 20px;
     border: 3px solid $global-light-gray;
     border-radius: 8px;
     margin-bottom: 20px;
 
-    .login-title {
+    .create-title {
       font-size: 30px;
       font-weight: bold;
       text-align: center;
@@ -21,17 +21,27 @@
       margin-bottom: 12px;
     }
 
-    .login-input {
+    .create-input {
       background-color: rgb(218, 218, 218);
       font-size: 15px;
       height: 25px;
-      width: 250px;
+      width: 500px;
       border: unset;
       border-radius: 4px;
       padding-left: 5px;
     }
 
-    .login-error {
+    .create-textarea {
+      background-color: rgb(218, 218, 218);
+      font-size: 15px;
+      height: 100px;
+      width: 500px;
+      border: unset;
+      border-radius: 4px;
+      padding-left: 5px;
+    }
+
+    .create-error {
       color: $global-error-color;
       font-size: 14px;
       margin-top: 7px;

@@ -5,11 +5,12 @@ import { getGameById } from '../gamesService';
 import { TGame } from '../../../../../game-dev-shared/src/games';
 import './styles/game.scss';
 import Button from '../../../components/Button';
+import Loader from '../../../components/Loader';
 
 export default function Game() {
   const { id } = useParams();
 
-  const params = useMemo(() => [id], [id])
+  const params = useMemo(() => [id], [id]);
   const game: TGame | undefined = useServer(getGameById, params);
 
   return (
@@ -40,16 +41,14 @@ export default function Game() {
               <strong>Price:</strong> {game.price ? `$${game.price}` : 'Undetermined'}
             </div>
             <div>
-              <Link to={`/update/${id}`}>
-                <Button>
-                  Update
-                </Button>
+              <Link to={`/updategame/${id}`}>
+                <Button>Update</Button>
               </Link>
             </div>
           </div>
         </>
       ) : (
-        <>Loading...</>
+        <Loader />
       )}
     </>
   );

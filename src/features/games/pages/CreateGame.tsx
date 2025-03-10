@@ -2,11 +2,12 @@ import { useNavigate } from 'react-router-dom';
 import { useErrorBoundary } from 'react-error-boundary';
 import { FieldValues, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import axios from 'axios';
+import { createGame } from '../gamesService';
+import Button from '../../../components/Button';
 import { gameSchema, TGameSchema } from '../../../../../game-dev-shared/src/games';
-import './styles/create.scss';
+import './styles/creategame.scss';
 
-function Create() {
+export default function CreateGame() {
   const { showBoundary } = useErrorBoundary();
   const navigate = useNavigate();
 
@@ -25,20 +26,7 @@ function Create() {
       const release_date = data.release_date;
       const price = data.price;
 
-      const response = await axios.post<number>(
-        'http://localhost:4000/api/games',
-        {
-          name,
-          description,
-          release_date,
-          price
-        },
-        {
-          withCredentials: true
-        }
-      );
-
-      const gameId = response.data;
+      const gameId: number = await createGame(name, description, release_date, price);
       return navigate(`/game/${gameId}`);
     } catch (error) {
       showBoundary(error);
@@ -50,35 +38,35 @@ function Create() {
       <form onSubmit={handleSubmit(onSubmit)} className="create-content">
         <div className="create-title">Create Game</div>
         <div>
-          <input {...register('name')} type="text" placeholder="Name" />
-          {errors.name && <div className="create-form-error">{`${errors.name.message}`}</div>}
+          <input {...register('name')} type="text" placeholder="Name" className="create-input" />
+          {errors.name && <div className="create-error">{`${errors.name.message}`}</div>}
         </div>
         <div>
-          <textarea {...register('description')} placeholder="Description" rows={8} />
-          {errors.description && <div className="create-form-error">{errors.description.message}</div>}
+          <textarea {...register('description')} placeholder="Description" rows={8} className="create-textarea" />
+          {errors.description && <div className="create-error">{errors.description.message}</div>}
         </div>
         <div>
           <input
             {...register('release_date', { setValueAs: (v) => (v === '' || v === null ? undefined : new Date(v).toISOString()) })}
             type="date"
             placeholder="Release Date"
+            className="create-input"
           />
-          {errors.release_date && <div className="create-form-error">{`${errors.release_date.message}`}</div>}
+          {errors.release_date && <div className="create-error">{`${errors.release_date.message}`}</div>}
         </div>
         <div>
           <input
             {...register('price', { setValueAs: (v) => (v === '' || v === null ? undefined : parseInt(v)) })}
             type="text"
             placeholder="Price"
+            className="create-input"
           />
-          {errors.price && <div className="create-form-error">{`${errors.price.message}`}</div>}
+          {errors.price && <div className="create-error">{`${errors.price.message}`}</div>}
         </div>
-        <button type="submit" disabled={isSubmitting}>
+        <Button type="submit" disabled={isSubmitting}>
           Submit
-        </button>
+        </Button>
       </form>
     </div>
   );
 }
-
-export default Create;

@@ -1,5 +1,5 @@
 import { MouseEventHandler, ReactNode } from 'react';
-import './styles/Button.scss';
+import './styles/button.scss';
 
 type TButtonProps = {
   children: ReactNode;
