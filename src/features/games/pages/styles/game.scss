@@ -1,10 +1,31 @@
+@use '../../../../app/globalvars.scss' as *;
+
 .game-title {
   font-size: 35px;
   margin-bottom: 20px;
+  max-width: fit-content;
+  margin-inline: auto;
 }
 
-.game-properties {
-  > :nth-child(-n + 4) {
-    margin-bottom: 10px;
+.game-button {
+  max-width: fit-content;
+  margin-inline: auto;
+}
+
+.game-nav-container {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-top: 20px;
+
+  > button {
+    max-width: fit-content;
+    background-color: $global-dark-gray;
+    padding: 10px 60px;
+    border-radius: 10px;
   }
+}
+
+.game-component-container {
+  margin-top: 20px;
 }

@@ -6,11 +6,12 @@ type TButtonProps = {
   type?: 'button' | 'submit';
   clickEvent?: MouseEventHandler<HTMLButtonElement>;
   disabled?: boolean;
+  selected?: boolean;
 };
 
-export default function Button({ children, type = 'button', clickEvent = () => {}, disabled = false }: TButtonProps) {
+export default function Button({ children, type = 'button', clickEvent = () => {}, disabled = false, selected = false }: TButtonProps) {
   return (
-    <button className="button" type={type} onClick={clickEvent} disabled={disabled}>
+    <button className={selected ? 'button-selected' : 'button'} type={type} onClick={clickEvent} disabled={disabled}>
       {children}
     </button>
   );
