@@ -4,7 +4,7 @@ import useAuthContext from '../../features/auth/lib/hooks/useAuth';
 import '../styles/navbar.scss';
 
 export default function Navbar() {
-  const { accessToken, userId } = useAuthContext();
+  const { accessToken, username } = useAuthContext();
 
   return (
     <div className="navbar">
@@ -16,8 +16,8 @@ export default function Navbar() {
           <Link to="/creategame" className="navbar-margin-right">
             <NavbarLink>Create</NavbarLink>
           </Link>
-          <Link to={`/profile/${userId}`}>
-            <NavbarLink>Profile</NavbarLink>
+          <Link to={`/profile/${username}`}>
+            <NavbarLink>{username}</NavbarLink>
           </Link>
         </>
       ) : (

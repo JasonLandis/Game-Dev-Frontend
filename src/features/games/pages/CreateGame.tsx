@@ -4,7 +4,7 @@ import { FieldValues, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { createGame } from '../gamesService';
 import Button from '../../../components/Button';
-import { gameSchema, TGameSchema } from '../../../../../game-dev-shared/src/games';
+import { gameSchema, TGameSchema } from '../../../../../game-dev-shared/src/game';
 import './styles/creategame.scss';
 
 export default function CreateGame() {

@@ -6,7 +6,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import useServer from '../../../lib/hooks/useServer';
 import Button from '../../../components/Button';
 import { deleteGame, getGameById, updateGame } from '../gamesService';
-import { gameSchema, TGameSchema, TGame } from '../../../../../game-dev-shared/src/games';
+import { gameSchema, TGameSchema, TGame } from '../../../../../game-dev-shared/src/game';
 import './styles/updategame.scss';
 
 export default function UpdateGame() {

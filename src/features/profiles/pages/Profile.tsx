@@ -4,7 +4,7 @@ import useServer from '../../../lib/hooks/useServer';
 import { getProfileById } from '../profilesService';
 import Button from '../../../components/Button';
 import useAuthContext from '../../auth/lib/hooks/useAuth';
-import { TProfile } from '../../../../../game-dev-shared/src/profiles';
+import { TProfile } from '../../../../../game-dev-shared/src/profile';
 import './styles/profile.scss';
 import GameCard from '../../../components/GameCard';
 import Loader from '../../../components/Loader';
@@ -29,7 +29,7 @@ export default function Profile() {
         <>
           <div className="profile-username">{profile.username}</div>
           <div className="profile-bio">{profile.bio}</div>
-          {userId == profile.user_id && (
+          {userId == profile.username && (
             <>
               <Link to={`/updateprofile/${id}`} className="profile-update">
                 <Button>Update</Button>

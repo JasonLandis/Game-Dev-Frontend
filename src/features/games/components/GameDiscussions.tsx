@@ -1,4 +1,4 @@
-import { TGame } from '../../../../../game-dev-shared/src/games';
+import { TGame } from '../../../../../game-dev-shared/src/game';
 import './styles/gamediscussions.scss';
 
 type TGameDiscussionsProps = {

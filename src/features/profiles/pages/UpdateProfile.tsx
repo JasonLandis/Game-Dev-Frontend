@@ -6,7 +6,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import useServer from '../../../lib/hooks/useServer';
 import Button from '../../../components/Button';
 import { getProfileById, updateProfile } from '../profilesService';
-import { profileSchema, TProfileSchema, TProfile } from '../../../../../game-dev-shared/src/profiles';
+import { profileSchema, TProfileSchema, TProfile } from '../../../../../game-dev-shared/src/profile';
 import './styles/updateprofile.scss';
 
 export default function UpdateProfile() {

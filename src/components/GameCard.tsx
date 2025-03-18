@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { TGame } from '../../../game-dev-shared/src/games';
+import { TGame } from '../../../game-dev-shared/src/game';
 import './styles/gamecard.scss';
 
 type TGameProps = {

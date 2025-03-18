@@ -3,9 +3,9 @@ import axios from 'axios';
 import AuthContext from '../contexts/AuthContext';
 import { jwtDecode } from 'jwt-decode';
 
-const AuthProvider = ({ children }: { children: ReactNode }) => {
+export default function AuthProvider({ children }: { children: ReactNode }) {
   const [accessToken, setAccessToken] = useState<string>();
-  const [userId, setUserId] = useState<string>();
+  const [username, setUsername] = useState<string>();
   const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
@@ -14,15 +14,13 @@ const AuthProvider = ({ children }: { children: ReactNode }) => {
       setAccessToken(token);
       axios.defaults.headers.common['Authorization'] = 'Bearer ' + token;
 
-      const decoded = jwtDecode<{ user_id: string }>(token);
-      if (decoded.user_id) {
-        setUserId(decoded.user_id);
+      const decoded = jwtDecode<{ username: string }>(token);
+      if (decoded.username) {
+        setUsername(decoded.username);
       }
     }
     setIsReady(true);
   }, [accessToken]);
 
-  return <AuthContext.Provider value={{ accessToken, setAccessToken, userId }}>{isReady ? children : null}</AuthContext.Provider>;
+  return <AuthContext.Provider value={{ accessToken, setAccessToken, username }}>{isReady ? children : null}</AuthContext.Provider>;
 };
-
-export default AuthProvider;

@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import useServer from '../../../lib/hooks/useServer';
 import { getGameById } from '../gamesService';
-import { TGame } from '../../../../../game-dev-shared/src/games';
+import { TGame } from '../../../../../game-dev-shared/src/game';
 import Button from '../../../components/Button';
 import Loader from '../../../components/Loader';
 import GameAbout from '../components/GameAbout';
