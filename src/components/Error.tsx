@@ -11,7 +11,7 @@ export default function Error({ error, resetErrorBoundary }: FallbackProps) {
 
   return (
     <div className="error-container">
-      <div>An error occured</div>
+      <div className="error-title">An error occured</div>
       {serverError ? (
         <>
           <div className="error-property">

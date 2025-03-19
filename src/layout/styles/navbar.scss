@@ -2,19 +2,23 @@
 
 .navbar {
   display: flex;
+  justify-content: space-between;
   align-items: center;
   height: 57px;
-  background-color: $global-dark-gray;
   border-bottom: 3px solid $global-light-gray;
+  background-color: $global-dark-gray;
   font-weight: bold;
   padding-inline: 20px;
 
   .navbar-logo {
     font-size: 20px;
-    margin-right: auto;
   }
 
-  .navbar-margin-right {
-    margin-right: 10px;
+  .navbar-links {
+    display: flex;
+
+    :nth-child(2) {
+      margin-left: 10px;
+    }
   }
 }

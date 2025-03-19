@@ -1,11 +1,11 @@
 @use '../../app/globalvars.scss' as *;
 
 .sidebar-container {
-  min-height: calc(100vh - 60px);
+  min-height: calc(100vh - 60px); // 60px is the height of the navbar
   min-width: 197px;
-  text-align: center;
-  background-color: $global-dark-gray;
   border-right: 3px solid $global-light-gray;
+  background-color: $global-dark-gray;
+  text-align: center;
   font-weight: bold;
 
   .sidebar-content {

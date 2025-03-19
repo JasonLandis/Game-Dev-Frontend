@@ -12,23 +12,23 @@ export default function Navbar() {
         Game Dev Blog
       </Link>
       {accessToken ? (
-        <>
-          <Link to="/creategame" className="navbar-margin-right">
+        <div className='navbar-links'>
+          <Link to="/creategame">
             <NavbarLink>Create</NavbarLink>
           </Link>
           <Link to={`/profile/${username}`}>
             <NavbarLink>{username}</NavbarLink>
           </Link>
-        </>
+        </div>
       ) : (
-        <>
-          <Link to="/login" className="navbar-margin-right">
+        <div className='navbar-links'>
+          <Link to="/login">
             <NavbarLink>Login</NavbarLink>
           </Link>
           <Link to="/register">
             <NavbarLink>Register</NavbarLink>
           </Link>
-        </>
+        </div>
       )}
     </div>
   );

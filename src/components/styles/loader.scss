@@ -1,6 +1,6 @@
 .loader-container {
-  max-width: fit-content;
-  margin-inline: auto;
+  display: flex;
+  justify-content: center;
 
   .loader {
     width: 48px;
