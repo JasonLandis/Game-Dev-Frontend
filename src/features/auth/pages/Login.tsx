@@ -42,11 +42,11 @@ export default function Login() {
         <div className="login-title">Login</div>
         <div>
           <input {...register('username')} type="text" placeholder="Username" className="login-input" />
-          {errors.username && <div className="login-error">{`${errors.username.message}`}</div>}
+          {errors.username && <div className="login-error">{errors.username.message}</div>}
         </div>
         <div>
           <input {...register('password')} type="password" placeholder="Password" className="login-input" />
-          {errors.password && <div className="login-error">{`${errors.password.message}`}</div>}
+          {errors.password && <div className="login-error">{errors.password.message}</div>}
         </div>
         <Button type="submit" disabled={isSubmitting}>
           Submit

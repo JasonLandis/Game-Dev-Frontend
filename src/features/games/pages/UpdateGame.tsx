@@ -69,7 +69,7 @@ export default function UpdateGame() {
         <div className="update-title">Update Game</div>
         <div>
           <input {...register('name')} type="text" placeholder="Name" className="update-input" />
-          {errors.name && <div className="update-error">{`${errors.name.message}`}</div>}
+          {errors.name && <div className="update-error">{errors.name.message}</div>}
         </div>
         <div>
           <textarea {...register('description')} placeholder="Description" rows={8} className="update-textarea" />
@@ -82,7 +82,7 @@ export default function UpdateGame() {
             placeholder="Release Date"
             className="update-input"
           />
-          {errors.release_date && <div className="update-error">{`${errors.release_date.message}`}</div>}
+          {errors.release_date && <div className="update-error">{errors.release_date.message}</div>}
         </div>
         <div>
           <input
@@ -92,7 +92,7 @@ export default function UpdateGame() {
             step="0.01"
             className="update-input"
           />
-          {errors.price && <div className="update-error">{`${errors.price.message}`}</div>}
+          {errors.price && <div className="update-error">{errors.price.message}</div>}
         </div>
         <Button type="submit" disabled={isSubmitting}>
           Submit

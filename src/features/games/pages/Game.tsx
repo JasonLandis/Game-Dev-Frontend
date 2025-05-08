@@ -35,10 +35,10 @@ export default function Game() {
             </Link>
           </div>
           <div className="game-nav-container">
-            <Button clickEvent={() => changeView('about')} selected={tab === 'about'}>About</Button>
-            <Button clickEvent={() => changeView('posts')} selected={tab === 'posts'}>Posts</Button>
-            <Button clickEvent={() => changeView('polls')} selected={tab === 'polls'}>Polls</Button>
-            <Button clickEvent={() => changeView('discussions')} selected={tab === 'discussions'}>Discussions</Button>
+            <Button clickEvent={() => changeView('about')}>About</Button>
+            <Button clickEvent={() => changeView('posts')}>Posts</Button>
+            <Button clickEvent={() => changeView('polls')}>Polls</Button>
+            <Button clickEvent={() => changeView('discussions')}>Discussions</Button>
           </div>
           <div className='game-component-container'>
             { tab === 'about' && <GameAbout game={game} /> }

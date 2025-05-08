@@ -26,11 +26,11 @@ export default function Router() {
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
           <Route path="game/:id" element={<Game />} />
-          <Route path="profile/:id" element={<Profile />} />
+          <Route path="profile/:username" element={<Profile />} />
           <Route element={<PrivateRoutes />}>
             <Route path="creategame" element={<CreateGame />} />
             <Route path="updategame/:id" element={<UpdateGame />} />
-            <Route path="updateprofile/:id" element={<UpdateProfile />} />
+            <Route path="updateprofile" element={<UpdateProfile />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Route>

@@ -39,7 +39,7 @@ export default function CreateGame() {
         <div className="create-title">Create Game</div>
         <div>
           <input {...register('name')} type="text" placeholder="Name" className="create-input" />
-          {errors.name && <div className="create-error">{`${errors.name.message}`}</div>}
+          {errors.name && <div className="create-error">{errors.name.message}</div>}
         </div>
         <div>
           <textarea {...register('description')} placeholder="Description" rows={8} className="create-textarea" />
@@ -48,11 +48,11 @@ export default function CreateGame() {
         <div>
           <input
             {...register('release_date', { setValueAs: (v) => (v === '' || v === null ? undefined : new Date(v).toISOString()) })}
-            type="date"
+            type="datetime-local"
             placeholder="Release Date"
             className="create-input"
           />
-          {errors.release_date && <div className="create-error">{`${errors.release_date.message}`}</div>}
+          {errors.release_date && <div className="create-error">{errors.release_date.message}</div>}
         </div>
         <div>
           <input
@@ -61,7 +61,7 @@ export default function CreateGame() {
             placeholder="Price"
             className="create-input"
           />
-          {errors.price && <div className="create-error">{`${errors.price.message}`}</div>}
+          {errors.price && <div className="create-error">{errors.price.message}</div>}
         </div>
         <Button type="submit" disabled={isSubmitting}>
           Submit

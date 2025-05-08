@@ -44,19 +44,19 @@ export default function Register() {
         <div className="register-title">Register</div>
         <div>
           <input {...register('username')} type="text" placeholder="Username" className="register-input" />
-          {errors.username && <div className="register-error">{`${errors.username.message}`}</div>}
+          {errors.username && <div className="register-error">{errors.username.message}</div>}
         </div>
         <div>
           <input {...register('email')} type="text" placeholder="Email" className="register-input" />
-          {errors.email && <div className="register-error">{`${errors.email.message}`}</div>}
+          {errors.email && <div className="register-error">{errors.email.message}</div>}
         </div>
         <div>
           <input {...register('password')} type="password" placeholder="Password" className="register-input" />
-          {errors.password && <div className="register-error">{`${errors.password.message}`}</div>}
+          {errors.password && <div className="register-error">{errors.password.message}</div>}
         </div>
         <div>
           <input {...register('confirmPassword')} type="password" placeholder="Confirm Password" className="register-input" />
-          {errors.confirmPassword && <div className="register-error">{`${errors.confirmPassword.message}`}</div>}
+          {errors.confirmPassword && <div className="register-error">{errors.confirmPassword.message}</div>}
         </div>
         <Button type="submit" disabled={isSubmitting}>
           Submit

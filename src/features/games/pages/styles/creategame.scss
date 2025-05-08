@@ -1,15 +1,14 @@
 @use '../../../../app/globalvars.scss' as *;
 
 .create-container {
-  max-width: fit-content;
-  margin-inline: auto;
+  display: flex;
+  justify-content: center;
 
   .create-content {
     background-color: $global-dark-gray;
-    padding: 20px;
     border: 3px solid $global-light-gray;
+    padding: 20px;
     border-radius: 8px;
-    margin-bottom: 20px;
 
     .create-title {
       font-size: 30px;
@@ -22,23 +21,34 @@
     }
 
     .create-input {
-      background-color: rgb(218, 218, 218);
+      background-color: rgb(235, 235, 235);
       font-size: 15px;
-      height: 25px;
+      height: 30px;
       width: 500px;
       border: unset;
       border-radius: 4px;
-      padding-left: 5px;
+      padding-left: 10px;
+      font-family: 'Commissioner', sans-serif;
+
+      &:focus {
+        outline: rgb(117, 172, 255) solid 2px;
+      }
     }
 
     .create-textarea {
-      background-color: rgb(218, 218, 218);
+      background-color: rgb(235, 235, 235);
       font-size: 15px;
       height: 100px;
-      width: 500px;
+      min-width: 500px;
+      max-width: 500px;
       border: unset;
       border-radius: 4px;
-      padding-left: 5px;
+      padding: 5px;
+      font-family: 'Commissioner', sans-serif;
+
+      &:focus {
+        outline: rgb(117, 172, 255) solid 2px;
+      }
     }
 
     .create-error {

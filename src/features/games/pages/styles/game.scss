@@ -15,14 +15,11 @@
 .game-nav-container {
   display: flex;
   width: 100%;
-  justify-content: space-between;
   margin-top: 20px;
 
   > button {
-    max-width: fit-content;
+    width: 25%;
     background-color: $global-dark-gray;
-    padding: 10px 60px;
-    border-radius: 10px;
   }
 }
 

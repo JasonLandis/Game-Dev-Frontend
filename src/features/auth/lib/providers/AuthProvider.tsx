@@ -5,7 +5,7 @@ import { jwtDecode } from 'jwt-decode';
 
 export default function AuthProvider({ children }: { children: ReactNode }) {
   const [accessToken, setAccessToken] = useState<string>();
-  const [username, setUsername] = useState<string>();
+  const [loggedInUser, setLoggedInUser] = useState<string>();
   const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
@@ -16,11 +16,11 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
 
       const decoded = jwtDecode<{ username: string }>(token);
       if (decoded.username) {
-        setUsername(decoded.username);
+        setLoggedInUser(decoded.username);
       }
     }
     setIsReady(true);
   }, [accessToken]);
 
-  return <AuthContext.Provider value={{ accessToken, setAccessToken, username }}>{isReady ? children : null}</AuthContext.Provider>;
+  return <AuthContext.Provider value={{ accessToken, setAccessToken, loggedInUser }}>{isReady ? children : null}</AuthContext.Provider>;
 };

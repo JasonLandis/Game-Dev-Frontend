@@ -14,21 +14,18 @@
 - The top-level component for the application.
 - Wraps the application with a fallback error boundary in case page-level error boundaries fail to catch errors.
 - Wraps the application with providers.
-#### Layout.tsx
-- Structures the layout of the webpage.
-- Wraps each page with an error boundary.
+#### config.ts
+- Global configuration varaibles used throughout the application.
+#### global.scss
+- Contains global styles.
+- Class names defined here should start with the **global** prefix.
+#### globalvars.scss
+- Contains global variables.
+- Variables defined here should start with the **global** prefix.
 #### Provider.tsx
 - Initializes providers that are used throughout the application.
 #### Router.tsx
 - Initializes routing for the application.
-#### app.scss
-- Contains styles and variables used in highest-level components.
-- Class names defined here should be prefixed with the name of the component the class is being used in.
-#### global.scss
-- Contains global styles and variables.
-- Class names defined here should start with the **global** prefix.
-#### layout
-- Contains components used in Layout.tsx.
 
 --- 
 
@@ -39,22 +36,30 @@
 
 ### Components
 - Contains global components that are used throughout the application.
-- Contains a single style sheet that is shared by the components in this folder.
+- Each component has its own style file.
 
 ---
 
-### Pages
-- Contains React pages used throughout the application.
-- Each component has a .tsx file and a .css file.
+### Features
+- Contains separate folders for application sections.
+- Each folder can have its own pages, components, and lib folders.
+- Each file in a **pages** folder should be the component location of a route.
+- Each folder has its own service file. **All API calls must be made from inside this folder.**
+- **These folders should not reference each other and should be completely independent from one another.**
+
+---
+
+### Layout
+- Contains components and styles related to the layout of the application.
+
+---
+
+### Lib
+- Contains global hooks, contexts, providers, or utils used throughout the application.
 
 ---
 
 ### Other Files
-#### App.tsx and App.css
-- The parent component and style sheet that holds all other components.
-#### index.css
-- Contains global styles that are used throughout the application.
-- All classes defined in this file must start with 'global'.
 #### main.tsx
 - The entry point of the application.
 - Renders the App component.
