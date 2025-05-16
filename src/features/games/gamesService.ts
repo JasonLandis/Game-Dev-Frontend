@@ -15,9 +15,6 @@ export const createGame = async (name: string, description: string, release_date
       description,
       release_date,
       price
-    },
-    {
-      withCredentials: true
     }
   );
 
@@ -25,16 +22,13 @@ export const createGame = async (name: string, description: string, release_date
 };
 
 export const updateGame = async (id: string, name: string, description: string, release_date: string, price: number) => {
-  const response = await axios.put<TGame>(
+  const response = await axios.put<number>(
     `${apiUrl}/api/games/${id}`,
     {
       name,
       description,
       release_date,
       price
-    },
-    {
-      withCredentials: true
     }
   );
 
@@ -42,9 +36,5 @@ export const updateGame = async (id: string, name: string, description: string, 
 };
 
 export const deleteGame = async (id: string) => {
-  const response = await axios.delete<boolean>(`${apiUrl}/api/games/${id}`, {
-    withCredentials: true
-  });
-
-  return response.data;
+  await axios.delete<boolean>(`${apiUrl}/api/games/${id}`);
 };

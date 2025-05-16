@@ -5,8 +5,9 @@ import { FieldValues, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { getProfileByUsername, updateProfile } from '../profilesService';
 import { profileSchema, TProfileSchema, TProfile } from '../../../../../game-dev-shared/src/profile';
-import useServer from '../../../lib/hooks/useServer';
-import useAuthContext from '../../auth/lib/hooks/useAuth';
+import useServer from '../../../hooks/useServer';
+import useAxios from '../../../hooks/useAxios';
+import useAuthContext from '../../auth/hooks/useAuth';
 import Button from '../../../components/Button';
 import './styles/updateprofile.scss';
 
@@ -14,6 +15,7 @@ export default function UpdateProfile() {
   const { loggedInUser } = useAuthContext();
   const { showBoundary } = useErrorBoundary();
   const navigate = useNavigate();
+  const { execute } = useAxios();
 
   const {
     register,
@@ -34,7 +36,7 @@ export default function UpdateProfile() {
     try {
       const bio = data.bio;
 
-      const username = await updateProfile(bio);
+      const username: string = await execute(updateProfile, [bio]);
       return navigate(`/profile/${username}`);
     } catch (error) {
       showBoundary(error);

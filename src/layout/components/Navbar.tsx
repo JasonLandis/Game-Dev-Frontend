@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import NavbarLink from './NavbarLink';
-import useAuthContext from '../../features/auth/lib/hooks/useAuth';
+import { useAuthContext } from '../../features/auth/auth';
 import '../styles/navbar.scss';
 
 export default function Navbar() {

@@ -3,7 +3,8 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { useErrorBoundary } from 'react-error-boundary';
 import { FieldValues, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import useServer from '../../../lib/hooks/useServer';
+import useServer from '../../../hooks/useServer';
+import useAxios from '../../../hooks/useAxios';
 import Button from '../../../components/Button';
 import { deleteGame, getGameById, updateGame } from '../gamesService';
 import { gameSchema, TGameSchema, TGame } from '../../../../../game-dev-shared/src/game';
@@ -13,6 +14,7 @@ export default function UpdateGame() {
   const { showBoundary } = useErrorBoundary();
   const { id } = useParams();
   const navigate = useNavigate();
+  const { execute } = useAxios();
 
   const {
     register,
@@ -43,7 +45,7 @@ export default function UpdateGame() {
         throw 'No id';
       }
 
-      const gameId = await updateGame(id, name, description, release_date, price);
+      const gameId: number = await execute<number, [string, string, string, string, number]>(updateGame, [id, name, description, release_date, price]);
       return navigate(`/game/${gameId}`);
     } catch (error) {
       showBoundary(error);
@@ -56,7 +58,7 @@ export default function UpdateGame() {
         throw 'No id';
       }
 
-      await deleteGame(id);
+      await execute<void, [string]>(deleteGame, [id]);
       return navigate('/');
     } catch (error) {
       showBoundary(error);

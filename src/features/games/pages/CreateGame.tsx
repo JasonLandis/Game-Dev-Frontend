@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { useErrorBoundary } from 'react-error-boundary';
 import { FieldValues, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
+import useAxios from '../../../hooks/useAxios';
 import { createGame } from '../gamesService';
 import Button from '../../../components/Button';
 import { gameSchema, TGameSchema } from '../../../../../game-dev-shared/src/game';
@@ -10,6 +11,7 @@ import './styles/creategame.scss';
 export default function CreateGame() {
   const { showBoundary } = useErrorBoundary();
   const navigate = useNavigate();
+  const { execute } = useAxios();
 
   const {
     register,
@@ -26,7 +28,7 @@ export default function CreateGame() {
       const release_date = data.release_date;
       const price = data.price;
 
-      const gameId: number = await createGame(name, description, release_date, price);
+      const gameId: number = await execute<number, [string, string, string, number]>(createGame, [name, description, release_date, price]);
       return navigate(`/game/${gameId}`);
     } catch (error) {
       showBoundary(error);

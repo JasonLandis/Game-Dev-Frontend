@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { useErrorBoundary } from 'react-error-boundary';
 import { FieldValues, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import useAuthContext from '../lib/hooks/useAuth';
+import useAuthContext from '../hooks/useAuth';
 import Button from '../../../components/Button';
 import { loginUser } from '../authService';
 import { loginSchema, TLoginSchema } from '../../../../../game-dev-shared/src/auth';
@@ -27,8 +27,6 @@ export default function Login() {
       const password = data.password;
 
       const accessToken = await loginUser(username, password);
-
-      localStorage.setItem('accessToken', accessToken);
       setAccessToken(accessToken);
       return navigate('/');
     } catch (error) {

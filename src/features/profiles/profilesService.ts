@@ -8,13 +8,10 @@ export const getProfileByUsername = async (username: string | undefined) => {
 };
 
 export const updateProfile = async (bio: string) => {
-  const response = await axios.put<TProfile>(
+  const response = await axios.put<string>(
     `${apiUrl}/api/profiles`,
     {
       bio
-    },
-    {
-      withCredentials: true
     }
   );
 

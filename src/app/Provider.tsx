@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import AuthProvider from '../features/auth/lib/providers/AuthProvider';
+import { AuthProvider } from '../features/auth/auth.ts';
 
 type TProviderProps = {
   children: ReactNode;
