@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { useErrorBoundary } from 'react-error-boundary';
 import { FieldValues, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import useAuthContext from '../lib/hooks/useAuth';
+import useAuthContext from '../hooks/useAuth';
 import Button from '../../../components/Button';
 import { registerUser } from '../authService';
 import { registerSchema, TRegisterSchema } from '../../../../../game-dev-shared/src/auth';
@@ -29,8 +29,6 @@ export default function Register() {
       const confirmPassword = data.confirmPassword;
 
       const accessToken = await registerUser(username, email, password, confirmPassword);
-
-      localStorage.setItem('accessToken', accessToken);
       setAccessToken(accessToken);
       return navigate('/');
     } catch (error) {

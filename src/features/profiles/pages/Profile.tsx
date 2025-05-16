@@ -4,8 +4,8 @@ import { useErrorBoundary } from 'react-error-boundary';
 import { getProfileByUsername } from '../profilesService';
 import { logoutUser } from '../../auth/authService';
 import { TProfile } from '../../../../../game-dev-shared/src/profile';
-import useServer from '../../../lib/hooks/useServer';
-import useAuthContext from '../../auth/lib/hooks/useAuth';
+import useServer from '../../../hooks/useServer';
+import useAuthContext from '../../auth/hooks/useAuth';
 import Button from '../../../components/Button';
 import GameCard from '../../../components/GameCard';
 import Loader from '../../../components/Loader';
@@ -13,7 +13,7 @@ import './styles/profile.scss';
 
 export default function Profile() {
   const { username } = useParams();
-  const { loggedInUser, setAccessToken } = useAuthContext();
+  const { loggedInUser, removeAccessToken } = useAuthContext();
   const { showBoundary } = useErrorBoundary();
   const navigate = useNavigate();
 
@@ -22,9 +22,8 @@ export default function Profile() {
 
   const logout = async () => {
     try {
-      localStorage.removeItem('accessToken');
+      removeAccessToken();
       await logoutUser();
-      setAccessToken(undefined);
       return navigate(`/`);
     } catch(error) {
       showBoundary(error);

@@ -1,20 +1,10 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Layout from '../layout/Layout';
-import PrivateRoutes from '../lib/utils/PrivateRoutes';
-
-import Login from '../features/auth/pages/Login';
-import Register from '../features/auth/pages/Register';
-
-import Home from '../features/core/pages/Home';
-import About from '../features/core/pages/About';
-import NotFound from '../features/core/pages/NotFound';
-
-import Game from '../features/games/pages/Game';
-import CreateGame from '../features/games/pages/CreateGame';
-import UpdateGame from '../features/games/pages/UpdateGame';
-
-import Profile from '../features/profiles/pages/Profile';
-import UpdateProfile from '../features/profiles/pages/UpdateProfile';
+import PrivateRoutes from '../utils/PrivateRoutes';
+import { Login, Register } from '../features/auth/auth';
+import { Home, About, NotFound } from '../features/core/core';
+import { Game, CreateGame, UpdateGame } from '../features/games/games';
+import { Profile, UpdateProfile } from '../features/profiles/profiles';
 
 export default function Router() {
   return (
