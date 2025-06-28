@@ -45,7 +45,13 @@ export default function UpdateGame() {
         throw 'No id';
       }
 
-      const gameId: number = await execute<number, [string, string, string, string, number]>(updateGame, [id, name, description, release_date, price]);
+      const gameId: number = await execute<number, [string, string, string, string, number]>(updateGame, [
+        id,
+        name,
+        description,
+        release_date,
+        price
+      ]);
       return navigate(`/game/${gameId}`);
     } catch (error) {
       showBoundary(error);

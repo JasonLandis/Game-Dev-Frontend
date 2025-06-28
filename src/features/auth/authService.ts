@@ -33,11 +33,8 @@ export const registerUser = async (username: string, email: string, password: st
   return response.data;
 };
 
-export const logoutUser = async() => {
-  return await axios.post(
-    `${apiUrl}/auth/logout`,
-    {
-      withCredentials: true
-    }
-  );
-}
+export const logoutUser = async () => {
+  return await axios.post(`${apiUrl}/auth/logout`, {
+    withCredentials: true
+  });
+};

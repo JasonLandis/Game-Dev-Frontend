@@ -12,7 +12,7 @@ export default function Navbar() {
         Game Dev Blog
       </Link>
       {accessToken ? (
-        <div className='navbar-links'>
+        <div className="navbar-links">
           <Link to="/creategame">
             <NavbarLink>Create</NavbarLink>
           </Link>
@@ -21,7 +21,7 @@ export default function Navbar() {
           </Link>
         </div>
       ) : (
-        <div className='navbar-links'>
+        <div className="navbar-links">
           <Link to="/login">
             <NavbarLink>Login</NavbarLink>
           </Link>

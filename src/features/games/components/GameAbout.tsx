@@ -2,8 +2,8 @@ import { TGame } from '../../../../../game-dev-shared/src/game';
 import './styles/gameabout.scss';
 
 type TGameAboutProps = {
-    game: TGame
-}
+  game: TGame;
+};
 
 export default function GameAbout({ game }: TGameAboutProps) {
   return (

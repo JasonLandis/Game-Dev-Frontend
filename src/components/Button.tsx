@@ -10,7 +10,7 @@ type TButtonProps = {
 
 export default function Button({ children, type = 'button', clickEvent = () => {}, disabled = false }: TButtonProps) {
   return (
-    <button className='button' type={type} onClick={clickEvent} disabled={disabled}>
+    <button className="button" type={type} onClick={clickEvent} disabled={disabled}>
       {children}
     </button>
   );

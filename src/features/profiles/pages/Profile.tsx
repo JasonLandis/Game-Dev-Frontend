@@ -25,7 +25,7 @@ export default function Profile() {
       removeAccessToken();
       await logoutUser();
       return navigate(`/`);
-    } catch(error) {
+    } catch (error) {
       showBoundary(error);
     }
   };

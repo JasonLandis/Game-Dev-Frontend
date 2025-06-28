@@ -22,7 +22,7 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
     delete axios.defaults.headers.common['Authorization'];
     setAccessTokenState(undefined);
     setLoggedInUser(undefined);
-  }
+  };
 
   useEffect(() => {
     const token = localStorage.getItem('accessToken');
@@ -30,5 +30,9 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
     setIsReady(true);
   }, [accessToken]);
 
-  return <AuthContext.Provider value={{ accessToken, setAccessToken, removeAccessToken, loggedInUser }}>{isReady ? children : null}</AuthContext.Provider>;
-};
+  return (
+    <AuthContext.Provider value={{ accessToken, setAccessToken, removeAccessToken, loggedInUser }}>
+      {isReady ? children : null}
+    </AuthContext.Provider>
+  );
+}

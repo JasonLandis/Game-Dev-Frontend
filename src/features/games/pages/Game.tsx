@@ -20,7 +20,7 @@ export default function Game() {
 
   const changeView = (tabName: 'about' | 'posts' | 'polls' | 'discussions') => {
     setTab(tabName);
-  }
+  };
 
   return (
     <>
@@ -40,11 +40,11 @@ export default function Game() {
             <Button clickEvent={() => changeView('polls')}>Polls</Button>
             <Button clickEvent={() => changeView('discussions')}>Discussions</Button>
           </div>
-          <div className='game-component-container'>
-            { tab === 'about' && <GameAbout game={game} /> }
-            { tab === 'posts' && <GamePosts game={game} /> }
-            { tab === 'polls' && <GamePolls game={game} /> }
-            { tab === 'discussions' && <GameDiscussions game={game} /> }
+          <div className="game-component-container">
+            {tab === 'about' && <GameAbout game={game} />}
+            {tab === 'posts' && <GamePosts game={game} />}
+            {tab === 'polls' && <GamePolls game={game} />}
+            {tab === 'discussions' && <GameDiscussions game={game} />}
           </div>
         </>
       ) : (
