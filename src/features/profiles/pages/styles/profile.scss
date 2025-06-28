@@ -22,4 +22,20 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 20px;
+
+  > a {
+    min-width: 0;
+  }
+}
+
+@media (max-width: 1300px) {
+  .profile-games-grid-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 800px) {
+  .profile-games-grid-container {
+    grid-template-columns: 1fr;
+  }
 }
