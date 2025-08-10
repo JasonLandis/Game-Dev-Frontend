@@ -1,3 +1,7 @@
 node_modules
 dist
-tsconfig.tsbuildinfo
+.angular/cache
+.vscode/*
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json

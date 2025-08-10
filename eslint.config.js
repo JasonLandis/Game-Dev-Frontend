@@ -1,24 +1,38 @@
-import eslint from '@eslint/js'
-import tseslint from 'typescript-eslint'
-import globals from 'globals'
-import reactHooks from 'eslint-plugin-react-hooks'
-import reactRefresh from 'eslint-plugin-react-refresh'
+// @ts-check
+const { configs } = require("@eslint/js");
+const { config, configs: _configs } = require("typescript-eslint");
+const { configs: __configs, processInlineTemplates } = require("angular-eslint");
 
-export default tseslint.config(
-  eslint.configs.recommended,
-  tseslint.configs.recommended,
-  { ignores: ['dist'] },
+module.exports = config(
   {
-    languageOptions: {
-      globals: globals.browser,
-    },
-    plugins: {
-      'react-hooks': reactHooks,
-      'react-refresh': reactRefresh,
-    },
+    files: ["**/*.ts"],
+    extends: [
+      configs.recommended,
+      // @ts-ignore
+      ..._configs.recommended,
+      // @ts-ignore
+      ..._configs.stylistic,
+      // @ts-ignore
+      ...__configs.tsRecommended,
+    ],
+    processor: processInlineTemplates,
     rules: {
-      ...reactHooks.configs.recommended.rules,
-      ...reactRefresh.configs.recommended.rules
+      "@angular-eslint/directive-selector": [
+        "error",
+        { type: "attribute", prefix: "app", style: "camelCase" },
+      ],
+      "@angular-eslint/component-selector": [
+        "error",
+        { type: "element", prefix: "app", style: "kebab-case" },
+      ],
     },
   },
-)
+  {
+    files: ["**/*.html"],
+    extends: [
+      ...__configs.templateRecommended,
+      ...__configs.templateAccessibility,
+    ],
+    rules: {},
+  }
+);
