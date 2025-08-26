@@ -1,3 +1,11 @@
+@use 'variables' as *;
+
 .app-container {
   display: flex;
+}
+
+.app-page-container {
+  background: linear-gradient($global-dark-gray, $global-light-gray);
+  padding: 20px;
+  width: 100%;
 }
