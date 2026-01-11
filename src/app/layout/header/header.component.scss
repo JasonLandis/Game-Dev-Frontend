@@ -1,6 +1,6 @@
 @use 'variables' as *;
 
-.header {
+.navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -10,32 +10,32 @@
   font-weight: bold;
   padding-inline: 20px;
 
-  .header-logo {
+  .navbar-logo {
     font-size: 20px;
   }
 
-  .header-links {
+  .navbar-links {
     display: flex;
 
     :nth-child(2) {
       margin-left: 10px;
     }
+  }
+}
 
-    > a {
-      background-color: rgb(56, 56, 56);
-      color: white;
-      border: unset;
-      cursor: pointer;
-      padding: 10px 15px;
-      border-radius: 8px;
+.navbar-link {
+  background-color: rgb(56, 56, 56);
+  color: white;
+  border: unset;
+  cursor: pointer;
+  padding: 10px 15px;
+  border-radius: 8px;
 
-      &:hover {
-        background-color: rgb(65, 65, 65);
-      }
+  &:hover {
+    background-color: rgb(65, 65, 65);
+  }
 
-      &:active {
-        background-color: rgb(71, 71, 71);
-      }
-    }
+  &:active {
+    background-color: rgb(71, 71, 71);
   }
 }
