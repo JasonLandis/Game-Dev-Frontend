@@ -1,0 +1,24 @@
+import { Outlet, useLocation } from 'react-router-dom';
+import { ErrorBoundary } from 'react-error-boundary';
+import Navbar from './components/Navbar';
+import Sidebar from './components/Sidebar';
+import Error from '../components/Error';
+import './styles/layout.scss';
+
+export default function Layout() {
+  const location = useLocation();
+
+  return (
+    <>
+      <Navbar />
+      <div className="layout-container">
+        <Sidebar />
+        <div className="layout-main">
+          <ErrorBoundary FallbackComponent={Error} key={location.pathname}>
+            <Outlet />
+          </ErrorBoundary>
+        </div>
+      </div>
+    </>
+  );
+}

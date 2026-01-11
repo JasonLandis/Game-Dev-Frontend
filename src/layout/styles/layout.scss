@@ -1,0 +1,11 @@
+@use '../../app/globalvars.scss' as *;
+
+.layout-container {
+  display: flex;
+}
+
+.layout-main {
+  background: linear-gradient($global-dark-gray, $global-light-gray);
+  padding: 20px;
+  width: 100%;
+}
