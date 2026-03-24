@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 import GameCard from '../../../components/GameCard';
 import useServer from '../../../hooks/useServer';
 import { getGames } from '../coreService';
-import { TGame } from '../../../../../game-dev-shared/src/game';
+import { TGame } from '@jlandis1/gamedevblog-shared';
 import Loader from '../../../components/Loader';
 import './styles/home.scss';
 

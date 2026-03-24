@@ -1,4 +1,4 @@
-import { TGame } from '../../../../../game-dev-shared/src/game';
+import { TGame } from '@jlandis1/gamedevblog-shared';
 import './styles/gamepolls.scss';
 
 type TGamePollsProps = {

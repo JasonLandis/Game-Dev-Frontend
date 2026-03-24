@@ -1,8 +1,8 @@
 import { useMemo, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import useServer from '../../../hooks/useServer';
 import { getGameById } from '../gamesService';
-import { TGame } from '../../../../../game-dev-shared/src/game';
+import { TGame } from '@jlandis1/gamedevblog-shared';
 import Button from '../../../components/Button';
 import Loader from '../../../components/Loader';
 import GameAbout from '../components/GameAbout';
@@ -28,11 +28,6 @@ export default function Game() {
         <>
           <div className="game-title">
             <strong>{game.name}</strong>
-          </div>
-          <div className="game-button">
-            <Link to={`/updategame/${id}`}>
-              <Button>Update</Button>
-            </Link>
           </div>
           <div className="game-nav-container">
             <Button clickEvent={() => changeView('about')}>About</Button>

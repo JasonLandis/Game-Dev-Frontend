@@ -8,6 +8,7 @@
     "prettier": "prettier --config .prettierrc.json src/**/*{.tsx,.ts,.scss} --write"
   },
   "dependencies": {
+    "@jlandis1/gamedevblog-shared": "^1.0.1",
     "@hookform/resolvers": "^3.10.0",
     "axios": "^1.7.9",
     "jwt-decode": "^4.0.0",
