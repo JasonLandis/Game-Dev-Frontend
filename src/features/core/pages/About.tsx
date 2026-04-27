@@ -4,10 +4,10 @@ export default function About() {
   return (
     <>
       <div className="about-title">About the Game Dev Blog project</div>
-      <div>
-        I wanted to build an app for game developers so that they could blog about the game they're working on as their working on it
-      This would give them insight on which ideas would be a good idea to implement.
-      Since this project was a colossal undertaking for just one person, I decided to focus on other projects.
+      <div className="about-message">
+        This was a passion project of mine for a few years. It's a space for game developers to build a community 
+        and get real feedback while they develop their games. I've decided to move on to other things for now, 
+        but I put together this demo with some sample data to show what the platform was all about. Thanks for taking a look!
       </div>
     </>
   );

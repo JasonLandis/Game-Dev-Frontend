@@ -1,5 +1,25 @@
-.gameabout-properties {
-  > :nth-child(-n + 4) {
-    margin-bottom: 10px;
+.gameabout-container {
+  display: flex;
+  gap: 12px;
+  font-size: 18px;
+
+  img {
+    width: calc(50% - 6px);
+    border-radius: 5px;
+  }
+
+  .gameabout-properties {
+    > :nth-child(-n + 4) {
+      margin-bottom: 40px;
+    }
+
+    .gameabout-subheader {
+      font-size: 15px;
+      margin-bottom: 8px;
+    }
+  }
+
+  .gameabout-description {
+    font-size: 22px;
   }
 }

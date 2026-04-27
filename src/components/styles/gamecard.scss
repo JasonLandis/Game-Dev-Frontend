@@ -5,6 +5,9 @@
   border-radius: 8px;
   transition: transform 0.2s;
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   &:hover {
     transform: scale(1.02);
@@ -14,18 +17,50 @@
     transform: scale(1.04);
   }
 
-  .gamecard-content {
+  .gamecard-content {    
     padding: 20px;
+    height: calc(100% - 20px);
 
     .gamecard-title {
       font-size: 25px;
       margin-bottom: 15px;
     }
 
-    .gamecard-properties {
-      :nth-child(-n + 3) {
-        margin-bottom: 10px;
-      }
+    .gamecard-graphic {
+      width: 100%;
+      margin-bottom: 15px;
+      border-radius: 5px;
+    }
+
+    .gamecard-description {
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 4;
+      line-clamp: 4;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      text-align: justify; 
+    }
+  }
+
+  .gamecard-profile {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+    font-weight: bold;
+
+    img {
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      background-color: white;
+      padding: 5px;
+    }
+
+    &:hover {
+      background-color: rgb(65, 65, 65);
     }
   }
 }

@@ -108,8 +108,5 @@
     "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
   },
   "include": ["src", "vite.config.ts"],
-  "exclude": ["node_modules", "dist"],
-  "references": [
-    { "path": "../game-dev-shared" }
-  ]
+  "exclude": ["node_modules", "dist"]
 }

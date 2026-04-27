@@ -22,7 +22,7 @@ export default function Profile() {
           <div className="profile-games-title">Games</div>
           <div className="profile-games-grid-container">
             {profile.games.map((game) => (
-              <GameCard key={game.game_id} game={game} />
+              <GameCard key={game.game_id} game={game} profile={true} />
             ))}
           </div>
         </>

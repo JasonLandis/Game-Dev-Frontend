@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { TGame } from '@jlandis1/gamedevblog-shared';
 import './styles/gameabout.scss';
 
@@ -7,25 +8,32 @@ type TGameAboutProps = {
 
 export default function GameAbout({ game }: TGameAboutProps) {
   return (
-    <div className="gameabout-properties">
-      <div>
-        <strong>Description:</strong> {game.description}
-      </div>
-      <div>
-        <strong>Developer:</strong> {game.developer}
-      </div>
-      <div>
-        <strong>Release Date: </strong>
-        {game.release_date
-          ? new Intl.DateTimeFormat('en-us', {
-              dateStyle: 'medium',
-              timeStyle: 'short',
-              timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone
-            }).format(new Date(game.release_date))
-          : 'Undetermined'}
-      </div>
-      <div>
-        <strong>Price:</strong> {game.price ? `$${game.price}` : 'Undetermined'}
+    <div className="gameabout-container">
+      <img src={`http://localhost:4000/assets/games/${game.name}.png`} />
+      <div className="gameabout-properties">
+        <div className="gameabout-description">{game.description}</div>
+        <div>
+          <Link to={`/profile/${game.developer}`}>
+            <div className="gameabout-subheader">Developer</div> 
+            <div>{game.developer}</div>
+          </Link>
+        </div>
+        <div>
+          <div className="gameabout-subheader">Release Date</div> 
+          <div>
+          {game.release_date
+            ? new Intl.DateTimeFormat('en-us', {
+                dateStyle: 'medium',
+                timeStyle: 'short',
+                timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone
+              }).format(new Date(game.release_date))
+            : 'Undetermined'}
+          </div>
+        </div>
+        <div>
+          <div className="gameabout-subheader">Price</div> 
+          <div>{game.price ? `$${game.price}` : 'Undetermined'}</div>
+        </div>
       </div>
     </div>
   );
