@@ -30,10 +30,18 @@ export default function Game() {
             <strong>{game.name}</strong>
           </div>
           <div className="game-nav-container">
-            <Button clickEvent={() => changeView('about')} active={ tab === 'about' }>About</Button>
-            <Button clickEvent={() => changeView('posts')} active={ tab === 'posts' }>Posts</Button>
-            <Button clickEvent={() => changeView('polls')} active={ tab === 'polls' }>Polls</Button>
-            <Button clickEvent={() => changeView('discussions')} active={ tab === 'discussions' }>Discussions</Button>
+            <Button clickEvent={() => changeView('about')} active={tab === 'about'}>
+              About
+            </Button>
+            <Button clickEvent={() => changeView('posts')} active={tab === 'posts'}>
+              Posts
+            </Button>
+            <Button clickEvent={() => changeView('polls')} active={tab === 'polls'}>
+              Polls
+            </Button>
+            <Button clickEvent={() => changeView('discussions')} active={tab === 'discussions'}>
+              Discussions
+            </Button>
           </div>
           <div className="game-component-container">
             {tab === 'about' && <GameAbout game={game} />}

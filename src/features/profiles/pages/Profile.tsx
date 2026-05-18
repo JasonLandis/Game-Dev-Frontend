@@ -19,12 +19,16 @@ export default function Profile() {
         <>
           <div className="profile-username">{profile.username}</div>
           <div className="profile-bio">{profile.bio}</div>
-          <div className="profile-games-title">Games</div>
-          <div className="profile-games-grid-container">
-            {profile.games.map((game) => (
-              <GameCard key={game.game_id} game={game} profile={true} />
-            ))}
-          </div>
+          {profile.games.length > 0 && (
+            <>
+              <div className="profile-games-title">Games</div>
+              <div className="profile-games-grid-container">
+                {profile.games.map((game) => (
+                  <GameCard key={game.game_id} game={game} profile={true} />
+                ))}
+              </div>
+            </>
+          )}
         </>
       ) : (
         <Loader />

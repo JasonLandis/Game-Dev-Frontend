@@ -1,4 +1,3 @@
-
 import { TGame, TPost } from '@jlandis1/gamedevblog-shared';
 import useServer from '../../../hooks/useServer';
 import { getPostsByGameId } from '../gamesService';
@@ -22,20 +21,19 @@ export default function GamePosts({ game }: TGamePostsProps) {
                 <div className="gameposts-post-content">{post.content}</div>
                 <div className="gameposts-post-line"></div>
                 <div className="gameposts-post-date">
-                  {
-                    new Intl.DateTimeFormat('en-us', {
-                      dateStyle: 'medium',
-                      timeStyle: 'short',
-                      timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone
-                    }).format(new Date(post.created_at))
-                  }
+                  {new Intl.DateTimeFormat('en-us', {
+                    dateStyle: 'medium',
+                    timeStyle: 'short',
+                    timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone
+                  }).format(new Date(post.created_at))}
                 </div>
+                <div className="gameposts-post-comment">load comments</div>
               </div>
               {post.comments.map((comment) => (
                 <>
                   <div key={comment.comment_id}>
                     <div>{comment.content}</div>
-                  </div>                  
+                  </div>
                 </>
               ))}
             </>

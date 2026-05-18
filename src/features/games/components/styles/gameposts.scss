@@ -1,20 +1,27 @@
 .gameposts-post-container {
-    background-color: rgb(53, 53, 53);
-    box-shadow: 0 0 20px 3px rgb(19, 19, 19);
-    border-radius: 5px;
-    padding: 15px;
+  background-color: rgb(53, 53, 53);
+  box-shadow: 0 0 20px 3px rgb(19, 19, 19);
+  border-radius: 5px;
+  padding: 15px;
+  margin-bottom: 20px;
 }
 
 .gameposts-post-content {
-    font-size: 22px;
+  font-size: 22px;
 }
 
 .gameposts-post-line {
-    border: 1px solid rgb(83, 83, 83);
-    border-radius: 3px;
-    margin: 15px 0 10px 0;
+  border: 1px solid rgb(83, 83, 83);
+  border-radius: 3px;
+  margin: 15px 0 10px 0;
 }
 
 .gameposts-post-date {
-    font-size: 15px;
+  font-size: 15px;
+}
+
+.gameposts-post-comment {
+  margin-top: 13px;
+  font-size: 15px;
+  color: rgb(190, 190, 190);
 }

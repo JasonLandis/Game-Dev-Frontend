@@ -6,9 +6,15 @@
   img {
     width: calc(50% - 6px);
     border-radius: 5px;
+    box-shadow: 0 0 15px 1px rgb(26, 26, 26);
   }
 
   .gameabout-properties {
+    border: 2px solid rgb(73, 73, 73);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 15px 1px rgb(26, 26, 26);
+
     > :nth-child(-n + 4) {
       margin-bottom: 40px;
     }
