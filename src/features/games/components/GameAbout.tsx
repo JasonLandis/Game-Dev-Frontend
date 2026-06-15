@@ -20,7 +20,10 @@ export default function GameAbout({ game }: TGameAboutProps) {
         <div>
           <Link to={`/profile/${game.developer}`}>
             <div className="gameabout-subheader">Developer</div>
-            <div>{game.developer}</div>
+            <div className="gameabout-subheader-developer">
+              <img src={`http://localhost:4000/assets/user.png`} />
+              <div>{game.developer}</div>
+            </div>
           </Link>
         </div>
         <div>

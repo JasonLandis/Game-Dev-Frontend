@@ -17,7 +17,10 @@ export default function Profile() {
     <>
       {profile ? (
         <>
-          <div className="profile-username">{profile.username}</div>
+          <div className="profile-username">
+            <img src={`http://localhost:4000/assets/user.png`} />
+            {profile.username}
+          </div>
           <div className="profile-bio">{profile.bio}</div>
           {profile.games.length > 0 && (
             <>

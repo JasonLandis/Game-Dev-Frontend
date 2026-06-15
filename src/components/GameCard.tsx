@@ -4,7 +4,7 @@ import './styles/gamecard.scss';
 
 type TGameProps = {
   game: TGame;
-  profile: boolean;
+  profile?: boolean;
 };
 
 export default function GameCard({ game, profile }: TGameProps) {

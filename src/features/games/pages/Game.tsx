@@ -1,5 +1,5 @@
-import { useMemo, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useMemo } from 'react';
+import { useParams, useSearchParams } from 'react-router-dom';
 import useServer from '../../../hooks/useServer';
 import { getGameById } from '../gamesService';
 import { TGame } from '@jlandis1/gamedevblog-shared';
@@ -14,12 +14,20 @@ import './styles/game.scss';
 export default function Game() {
   const { id } = useParams();
 
-  const [tab, setTab] = useState<'about' | 'posts' | 'polls' | 'discussions'>('about');
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const validTabs = ['about', 'posts', 'polls', 'discussions'] as const;
+  type Tab = (typeof validTabs)[number];
+
+  const tabParam = searchParams.get('tab');
+
+  const tab: Tab = validTabs.includes(tabParam as Tab) ? (tabParam as Tab) : 'about';
+
   const params = useMemo(() => [id], [id]);
   const game: TGame | undefined = useServer(getGameById, params);
 
-  const changeView = (tabName: 'about' | 'posts' | 'polls' | 'discussions') => {
-    setTab(tabName);
+  const changeView = (tabName: Tab) => {
+    setSearchParams({ tab: tabName });
   };
 
   return (
