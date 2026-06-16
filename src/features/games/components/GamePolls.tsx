@@ -14,12 +14,13 @@ export default function GamePolls({ game }: TGamePollsProps) {
   const deps = useMemo(() => [game.game_id.toString()], [game.game_id]);
   const polls: TPoll[] | undefined = useServer<TPoll[], string>(getPollsByGameId, deps);
 
-  let totalVotes = 0;
+  const dict = new Map<number, number>();
 
   if (polls) {
     for (const poll of polls) {
       for (const option of poll.options) {
-        totalVotes += option.votes.length;
+        const total = dict.get(poll.poll_id) ?? 0;
+        dict.set(poll.poll_id, total + option.votes.length);
       }
     }
   }
@@ -52,7 +53,7 @@ export default function GamePolls({ game }: TGamePollsProps) {
                 <div className="gamepolls-poll-content">{poll.question}</div>
                 <div className="gamepolls-poll-options-container">
                   {poll.options.map((option) => {
-                    const percentage = totalVotes ? (option.votes.length * 100) / totalVotes : 0;
+                    const percentage = dict.get(poll.poll_id) ? (option.votes.length * 100) / dict.get(poll.poll_id)! : 0;
 
                     return (
                       <div key={option.option_id} className="gamepolls-poll-options">
