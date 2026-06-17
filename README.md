@@ -84,7 +84,7 @@ index.html
 
 ## Commands (using npm run)
 - **build** - Uses the TypeScript compiler and vite to build the project into the 'dist' folder.
-- **start** - Uses vite to start the built project in the 'dist' folder.
+- **start** - Uses serve to start the built project in the 'dist' folder.
 - **start:dev** - Uses vite to build and start the project for testing in development.
 - **lint** - Lints the application.
 - **prettier** - Styles the application.
