@@ -6,19 +6,10 @@
 public/
 src/
 ├── app/
-├── assets/
 ├── components/
 ├── features/
-│   └── auth/
-│       ├── contexts/
-│       ├── hooks/
-│       ├── pages/
-│       ├── providers/
-│       ├── auth.ts
-│       └── authService.ts
 ├── hooks/
 ├── layout/
-├── utils/
 └── main.tsx
 index.html
 ```
@@ -43,17 +34,10 @@ index.html
 #### globalvars.scss
 - Contains global variables.
 - Variables defined here should start with the **global** prefix.
-#### Provider.tsx
-- Initializes providers that are used throughout the application.
 #### Router.tsx
 - Initializes routing for the application.
 
 --- 
-
-### assets
-- Contains assets that are imported throughout the application.
-
----
 
 ### components
 - Contains global components that are used throughout the application.
@@ -82,19 +66,6 @@ index.html
 
 ### layout
 - Contains components and styles related to the layout of the application.
-
----
-
-### utils
-- Contains utility functions and helpers used throughout the application.
-
----
-
-### Other Folders
-#### contexts
-- Contains React context definitions and logic for managing global or shared state across the application.
-#### providers
-- Contains provider components that supply context, configuration, or third-party integrations to the app via React context.
 
 ---
 

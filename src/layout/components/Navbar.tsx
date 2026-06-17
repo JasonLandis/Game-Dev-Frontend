@@ -6,7 +6,8 @@ export default function Navbar() {
   return (
     <div className="navbar">
       <Link to="/" className="navbar-logo">
-        Game Dev Blog - Demo
+        <img src="/logo.png" />
+        <div>Game Dev Blog - Demo</div>
       </Link>
       <div className="navbar-links">
         <Link to="/login">
