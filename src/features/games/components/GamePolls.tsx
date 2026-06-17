@@ -4,6 +4,7 @@ import { TGame, TPoll } from '@jlandis1/gamedevblog-shared';
 import useServer from '../../../hooks/useServer';
 import { getPollsByGameId } from '../gamesService';
 import Loader from '../../../components/Loader';
+import { apiUrl } from '../../../app/config';
 import './styles/gamepolls.scss';
 
 type TGamePollsProps = {
@@ -85,7 +86,7 @@ export default function GamePolls({ game }: TGamePollsProps) {
                       <div className="gamepolls-poll-comment-header">
                         <Link to={`/profile/${comment.username}`}>
                           <div className="gamepolls-comment-profile">
-                            <img src={`http://localhost:4000/assets/user.png`} />
+                            <img src={`${apiUrl}/assets/user.png`} />
                             {comment.username}
                           </div>
                         </Link>

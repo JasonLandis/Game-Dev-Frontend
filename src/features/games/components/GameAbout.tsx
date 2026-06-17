@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { TGame } from '@jlandis1/gamedevblog-shared';
+import { apiUrl } from '../../../app/config';
 import './styles/gameabout.scss';
 
 type TGameAboutProps = {
@@ -14,14 +15,14 @@ export default function GameAbout({ game }: TGameAboutProps) {
 
   return (
     <div className="gameabout-container">
-      <img src={`http://localhost:4000/assets/games/${fileName}.png`} />
+      <img src={`${apiUrl}/assets/games/${fileName}.png`} />
       <div className="gameabout-properties">
         <div className="gameabout-description">{game.description}</div>
         <div>
           <Link to={`/profile/${game.developer}`}>
             <div className="gameabout-subheader">Developer</div>
             <div className="gameabout-subheader-developer">
-              <img src={`http://localhost:4000/assets/user.png`} />
+              <img src={`${apiUrl}/assets/user.png`} />
               <div>{game.developer}</div>
             </div>
           </Link>

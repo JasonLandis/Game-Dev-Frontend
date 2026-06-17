@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { TGame } from '@jlandis1/gamedevblog-shared';
+import { apiUrl } from '../app/config';
 import './styles/gamecard.scss';
 
 type TGameProps = {
@@ -20,14 +21,14 @@ export default function GameCard({ game, profile }: TGameProps) {
           <div className="gamecard-title">
             <strong>{game.name}</strong>
           </div>
-          <img className="gamecard-graphic" src={`http://localhost:4000/assets/games/${fileName}.png`} />
+          <img className="gamecard-graphic" src={`${apiUrl}/assets/games/${fileName}.png`} />
           <div className="gamecard-description">{game.description}</div>
         </div>
       </Link>
       {!profile && (
         <Link to={`/profile/${game.developer}`}>
           <div className="gamecard-profile">
-            <img src={`http://localhost:4000/assets/user.png`} />
+            <img src={`${apiUrl}/assets/user.png`} />
             {game.developer}
           </div>
         </Link>

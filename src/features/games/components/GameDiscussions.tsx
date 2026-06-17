@@ -4,6 +4,7 @@ import { TGame, TDiscussion } from '@jlandis1/gamedevblog-shared';
 import useServer from '../../../hooks/useServer';
 import { getDiscussionsByGameId } from '../gamesService';
 import Loader from '../../../components/Loader';
+import { apiUrl } from '../../../app/config';
 import './styles/gamediscussions.scss';
 
 type TGameDiscussionsProps = {
@@ -49,7 +50,7 @@ export default function GameDiscussions({ game }: TGameDiscussionsProps) {
                 <div className="gamediscussion-discussion-comment-header">
                   <Link to={`/profile/${comment.username}`}>
                     <div className="gamediscussion-comment-profile">
-                      <img src="http://localhost:4000/assets/user.png" />
+                      <img src={`${apiUrl}/assets/user.png`} />
                       {comment.username}
                     </div>
                   </Link>

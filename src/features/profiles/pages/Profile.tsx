@@ -5,6 +5,7 @@ import { TProfile } from '@jlandis1/gamedevblog-shared';
 import useServer from '../../../hooks/useServer';
 import GameCard from '../../../components/GameCard';
 import Loader from '../../../components/Loader';
+import { apiUrl } from '../../../app/config';
 import './styles/profile.scss';
 
 export default function Profile() {
@@ -18,7 +19,7 @@ export default function Profile() {
       {profile ? (
         <>
           <div className="profile-username">
-            <img src={`http://localhost:4000/assets/user.png`} />
+            <img src={`${apiUrl}/assets/user.png`} />
             {profile.username}
           </div>
           <div className="profile-bio">{profile.bio}</div>

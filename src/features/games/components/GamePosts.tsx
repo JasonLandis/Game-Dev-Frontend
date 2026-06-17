@@ -4,6 +4,7 @@ import { TGame, TPost } from '@jlandis1/gamedevblog-shared';
 import useServer from '../../../hooks/useServer';
 import { getPostsByGameId } from '../gamesService';
 import Loader from '../../../components/Loader';
+import { apiUrl } from '../../../app/config';
 import './styles/gameposts.scss';
 
 type TGamePostsProps = {
@@ -58,7 +59,7 @@ export default function GamePosts({ game }: TGamePostsProps) {
                       <div className="gameposts-post-comment-header">
                         <Link to={`/profile/${comment.username}`}>
                           <div className="gameposts-comment-profile">
-                            <img src={`http://localhost:4000/assets/user.png`} />
+                            <img src={`${apiUrl}/assets/user.png`} />
                             {comment.username}
                           </div>
                         </Link>
