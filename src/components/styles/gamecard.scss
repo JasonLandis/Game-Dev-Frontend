@@ -1,3 +1,5 @@
+@use '../../app/globalvars.scss' as *;
+
 .gamecard {
   background-color: rgb(46, 46, 46);
   box-shadow: 0 0 15px 1px rgb(0, 0, 0);
@@ -9,7 +11,7 @@
   flex-direction: column;
   justify-content: space-between;
 
-  &:hover {
+  @include hover {
     transform: scale(1.02);
   }
 
@@ -21,9 +23,17 @@
     padding: 20px;
     height: calc(100% - 20px);
 
+    @include mobile {
+      padding: 15px;
+    }
+
     .gamecard-title {
       font-size: 25px;
       margin-bottom: 15px;
+
+      @include mobile {
+        font-size: 22px;
+      }
     }
 
     .gamecard-graphic {
@@ -52,14 +62,14 @@
     font-weight: bold;
 
     img {
-      width: 25px;
-      height: 25px;
+      width: 35px;
+      height: 35px;
       border-radius: 50%;
       background-color: white;
       padding: 5px;
     }
 
-    &:hover {
+    @include hover {
       background-color: rgb(65, 65, 65);
     }
   }

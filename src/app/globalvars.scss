@@ -1,3 +1,35 @@
 $global-error-color: rgb(240, 89, 89);
 $global-dark-gray: rgb(39, 39, 39);
 $global-light-gray: rgb(56, 56, 56);
+
+$global-navbar-height: 60px; // 57px height + 3px border
+
+$global-bp-mobile: 600px;
+$global-bp-tablet: 800px;
+$global-bp-desktop: 1300px;
+
+@mixin mobile {
+  @media (max-width: $global-bp-mobile) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: $global-bp-tablet) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (max-width: $global-bp-desktop) {
+    @content;
+  }
+}
+
+@mixin hover {
+  @media (hover: hover) {
+    &:hover {
+      @content;
+    }
+  }
+}

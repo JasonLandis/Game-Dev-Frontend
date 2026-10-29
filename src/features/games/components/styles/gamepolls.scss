@@ -1,3 +1,5 @@
+@use '../../../../app/globalvars.scss' as *;
+
 .gamepolls-poll-container {
   background-color: rgb(53, 53, 53);
   box-shadow: 0 0 20px 3px rgb(19, 19, 19);
@@ -30,10 +32,18 @@
       z-index: 1;
       display: flex;
       justify-content: space-between;
+      gap: 15px;
       width: 100%;
+
+      > :first-child {
+        min-width: 0;
+        overflow-wrap: anywhere;
+      }
     }
 
     .gamepolls-poll-options-stats {
+      flex-shrink: 0;
+      white-space: nowrap;
       color: rgb(165, 165, 165);
       font-weight: bold;
     }
@@ -42,6 +52,11 @@
 
 .gamepolls-poll-content {
   font-size: 22px;
+  overflow-wrap: anywhere;
+
+  @include mobile {
+    font-size: 18px;
+  }
 }
 
 .gamepolls-poll-line {
@@ -58,10 +73,11 @@
   all: unset;
   cursor: pointer;
   margin-top: 13px;
+  padding-block: 8px;
   font-size: 15px;
   color: rgb(190, 190, 190);
 
-  &:hover {
+  @include hover {
     color: white;
   }
 }
@@ -76,7 +92,8 @@
   .gamepolls-poll-comment-header {
     display: flex;
     align-items: center;
-    gap: 20px;
+    flex-wrap: wrap;
+    gap: 4px 20px;
     margin-bottom: 9px;
 
     .gamepolls-poll-comment-date {
@@ -94,8 +111,8 @@
   font-weight: bold;
 
   img {
-    width: 12px;
-    height: 12px;
+    width: 22px;
+    height: 22px;
     border-radius: 50%;
     background-color: white;
     padding: 5px;

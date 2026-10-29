@@ -1,7 +1,18 @@
+@use '../../../../app/globalvars.scss' as *;
+
 .gamediscussion-grid-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 20px;
+
+  @include desktop {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
 }
 
 .gamediscussion-discussion-topic {
@@ -12,8 +23,14 @@
   text-align: center;
   font-size: 18px;
   cursor: pointer;
+  overflow-wrap: anywhere;
 
-  &:hover {
+  @include mobile {
+    padding: 15px;
+    font-size: 16px;
+  }
+
+  @include hover {
     background-color: rgb(56, 56, 56);
   }
 
@@ -48,7 +65,8 @@
   .gamediscussion-discussion-comment-header {
     display: flex;
     align-items: center;
-    gap: 20px;
+    flex-wrap: wrap;
+    gap: 4px 20px;
     margin-bottom: 9px;
 
     .gamediscussion-discussion-comment-date {
@@ -66,8 +84,8 @@
   font-weight: bold;
 
   img {
-    width: 12px;
-    height: 12px;
+    width: 22px;
+    height: 22px;
     border-radius: 50%;
     background-color: white;
     padding: 5px;

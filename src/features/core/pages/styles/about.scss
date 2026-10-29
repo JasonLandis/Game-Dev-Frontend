@@ -1,9 +1,19 @@
+@use '../../../../app/globalvars.scss' as *;
+
 .about-title {
   font-size: 30px;
   font-weight: bold;
   margin-bottom: 20px;
+
+  @include mobile {
+    font-size: 24px;
+  }
 }
 
 .about-message {
   font-size: 20px;
+
+  @include mobile {
+    font-size: 17px;
+  }
 }

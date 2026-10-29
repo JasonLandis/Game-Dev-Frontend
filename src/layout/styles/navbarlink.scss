@@ -1,3 +1,5 @@
+@use '../../app/globalvars.scss' as *;
+
 .navbarlink {
   background-color: rgb(56, 56, 56);
   color: white;
@@ -7,7 +9,7 @@
   border-radius: 8px;
   box-shadow: 0 0 15px 2px rgb(26, 26, 26);
 
-  &:hover {
+  @include hover {
     background-color: rgb(65, 65, 65);
   }
 

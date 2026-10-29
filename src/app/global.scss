@@ -1,10 +1,20 @@
 @use '../app/globalvars.scss' as *;
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   color: white;
   background-color: $global-dark-gray;
   font-family: 'Commissioner', sans-serif;
+}
+
+img {
+  max-width: 100%;
 }
 
 a {

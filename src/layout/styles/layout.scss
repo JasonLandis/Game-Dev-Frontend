@@ -2,10 +2,17 @@
 
 .layout-container {
   display: flex;
+  min-height: calc(100vh - $global-navbar-height);
+  min-height: calc(100dvh - $global-navbar-height);
 }
 
 .layout-main {
   background: linear-gradient($global-dark-gray, $global-light-gray);
   padding: 20px;
   width: 100%;
+  min-width: 0;
+
+  @include mobile {
+    padding: 15px;
+  }
 }

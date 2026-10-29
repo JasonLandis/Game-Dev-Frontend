@@ -20,7 +20,7 @@ export default function Profile() {
         <>
           <div className="profile-username">
             <img src={`${apiUrl}/assets/user.png`} />
-            {profile.username}
+            <span className="profile-username-text">{profile.username}</span>
           </div>
           <div className="profile-bio">{profile.bio}</div>
           {profile.games.length > 0 && (

@@ -1,3 +1,5 @@
+@use '../../../../app/globalvars.scss' as *;
+
 .gameposts-post-container {
   background-color: rgb(53, 53, 53);
   box-shadow: 0 0 20px 3px rgb(19, 19, 19);
@@ -8,6 +10,11 @@
 
 .gameposts-post-content {
   font-size: 22px;
+  overflow-wrap: anywhere;
+
+  @include mobile {
+    font-size: 18px;
+  }
 }
 
 .gameposts-post-line {
@@ -24,10 +31,11 @@
   all: unset;
   cursor: pointer;
   margin-top: 13px;
+  padding-block: 8px;
   font-size: 15px;
   color: rgb(190, 190, 190);
 
-  &:hover {
+  @include hover {
     color: white;
   }
 }
@@ -42,7 +50,8 @@
   .gameposts-post-comment-header {
     display: flex;
     align-items: center;
-    gap: 20px;
+    flex-wrap: wrap;
+    gap: 4px 20px;
     margin-bottom: 9px;
 
     .gameposts-post-comment-date {
@@ -60,8 +69,8 @@
   font-weight: bold;
 
   img {
-    width: 12px;
-    height: 12px;
+    width: 22px;
+    height: 22px;
     border-radius: 50%;
     background-color: white;
     padding: 5px;

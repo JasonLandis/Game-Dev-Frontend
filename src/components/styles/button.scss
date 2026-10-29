@@ -1,3 +1,5 @@
+@use '../../app/globalvars.scss' as *;
+
 .button {
   all: unset;
   cursor: pointer;
@@ -10,7 +12,7 @@
   font-weight: bold;
   box-shadow: 0 0 15px 1px rgb(26, 26, 26);
 
-  &:hover {
+  @include hover {
     background-color: rgb(65, 65, 65);
   }
 

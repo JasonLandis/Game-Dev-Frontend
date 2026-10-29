@@ -2,13 +2,31 @@ import { Link } from 'react-router-dom';
 import NavbarLink from './NavbarLink';
 import '../styles/navbar.scss';
 
-export default function Navbar() {
+type TNavbarProps = {
+  menuOpen: boolean;
+  toggleMenu: () => void;
+};
+
+export default function Navbar({ menuOpen, toggleMenu }: TNavbarProps) {
   return (
     <div className="navbar">
-      <Link to="/" className="navbar-logo">
-        <img src="/logo.png" />
-        <div>Game Dev Blog - Demo</div>
-      </Link>
+      <div className="navbar-left">
+        <button
+          className={`navbar-hamburger ${menuOpen ? 'navbar-hamburger-open' : ''}`}
+          onClick={toggleMenu}
+          aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={menuOpen}
+          aria-controls="sidebar"
+        >
+          <span />
+          <span />
+          <span />
+        </button>
+        <Link to="/" className="navbar-logo">
+          <img src="/logo.png" />
+          <div className="navbar-logo-text">Game Dev Blog - Demo</div>
+        </Link>
+      </div>
       <div className="navbar-links">
         <Link to="/login">
           <NavbarLink>Login</NavbarLink>

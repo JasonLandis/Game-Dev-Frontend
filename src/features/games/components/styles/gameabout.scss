@@ -1,24 +1,43 @@
+@use '../../../../app/globalvars.scss' as *;
+
 .gameabout-container {
   display: flex;
   gap: 12px;
   font-size: 18px;
 
-  img {
+  @include tablet {
+    flex-direction: column;
+  }
+
+  > img {
     width: calc(50% - 6px);
     border-radius: 5px;
     box-shadow: 0 0 15px 1px rgb(26, 26, 26);
     aspect-ratio: 16 / 9;
     object-fit: cover;
+
+    @include tablet {
+      width: 100%;
+    }
   }
 
   .gameabout-properties {
     border: 2px solid rgb(73, 73, 73);
     padding: 20px;
     border-radius: 5px;
+    min-width: 0;
     box-shadow: 0 0 15px 1px rgb(26, 26, 26);
+
+    @include mobile {
+      padding: 15px;
+    }
 
     > :nth-child(-n + 4) {
       margin-bottom: 40px;
+
+      @include mobile {
+        margin-bottom: 25px;
+      }
     }
 
     .gameabout-subheader {
@@ -31,8 +50,8 @@
       align-items: center;
 
       img {
-        width: 15px;
-        height: 15px;
+        width: 25px;
+        height: 25px;
         border-radius: 50%;
         background-color: white;
         padding: 5px;
@@ -43,5 +62,9 @@
 
   .gameabout-description {
     font-size: 22px;
+
+    @include mobile {
+      font-size: 19px;
+    }
   }
 }
